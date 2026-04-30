@@ -18,7 +18,7 @@ import (
 	"github.com/Tragidra/loglens/internal/storage/migrator"
 )
 
-// migrations/*.sql
+//go:embed migrations/*.sql
 var migrationsFS embed.FS
 
 // Store is the SQLite-backed storage.Repository.

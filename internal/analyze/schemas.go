@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 )
 
-// schema/cluster_analysis.json
+//go:embed schema/cluster_analysis.json
 var clusterAnalysisSchemaRaw []byte
 
 // ClusterAnalysisSchema is the JSON schema sent to the LLM for structured output, it already includes the

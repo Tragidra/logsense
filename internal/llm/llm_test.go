@@ -57,7 +57,7 @@ func TestOpenRouter_RequestPayload(t *testing.T) {
 
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		assert.Equal(t, "Bearer test-key", r.Header.Get("Authorization"))
-		assert.Equal(t, "https://github.com/lux/loglens", r.Header.Get("HTTP-Referer"))
+		assert.Equal(t, "https://github.com/Tragidra/loglens", r.Header.Get("HTTP-Referer"))
 		assert.Equal(t, "LogLens", r.Header.Get("X-Title"))
 
 		json.NewDecoder(r.Body).Decode(&received)

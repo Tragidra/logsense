@@ -16,7 +16,7 @@ import (
 
 const (
 	defaultBaseURL = "https://openrouter.ai/api/v1"
-	httpReferer    = "https://github.com/lux/loglens"
+	httpReferer    = "https://github.com/Tragidra/loglens"
 	xTitle         = "LogLens"
 )
 

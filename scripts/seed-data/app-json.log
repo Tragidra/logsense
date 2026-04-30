@@ -1,0 +1,500 @@
+{"ts":"2026-04-19T12:00:01Z","level":"INFO","service":"auth","msg":"request received","method":"GET","path":"/api/users/21444","duration_ms":"485"}
+{"ts":"2026-04-19T12:00:03Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:04Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/68962","duration_ms":"191"}
+{"ts":"2026-04-19T12:00:04Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:05Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:05Z","level":"INFO","service":"order","msg":"job completed","job_id":"66742","duration_ms":"487"}
+{"ts":"2026-04-19T12:00:06Z","level":"WARN","service":"auth","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 98945","duration_ms":"1143"}
+{"ts":"2026-04-19T12:00:08Z","level":"INFO","service":"search","msg":"job completed","job_id":"96687","duration_ms":"86"}
+{"ts":"2026-04-19T12:00:09Z","level":"INFO","service":"auth","msg":"request received","method":"GET","path":"/api/users/99754","duration_ms":"445"}
+{"ts":"2026-04-19T12:00:10Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"77483"}
+{"ts":"2026-04-19T12:00:10Z","level":"INFO","service":"search","msg":"cache hit","key":"user:9846"}
+{"ts":"2026-04-19T12:00:11Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:12Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:13Z","level":"INFO","service":"order","msg":"cache hit","key":"user:72975"}
+{"ts":"2026-04-19T12:00:15Z","level":"INFO","service":"auth","msg":"job completed","job_id":"14338","duration_ms":"790"}
+{"ts":"2026-04-19T12:00:16Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"580"}
+{"ts":"2026-04-19T12:00:17Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/66056","duration_ms":"289"}
+{"ts":"2026-04-19T12:00:19Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"98213"}
+{"ts":"2026-04-19T12:00:20Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/94533","duration_ms":"416"}
+{"ts":"2026-04-19T12:00:20Z","level":"WARN","service":"worker","msg":"retry attempted","attempt":"3","upstream":"payment-service"}
+{"ts":"2026-04-19T12:00:20Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/29206","duration_ms":"141"}
+{"ts":"2026-04-19T12:00:20Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"76922"}
+{"ts":"2026-04-19T12:00:22Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:23Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/49687","duration_ms":"388"}
+{"ts":"2026-04-19T12:00:23Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/23235","duration_ms":"192"}
+{"ts":"2026-04-19T12:00:25Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 36862","duration_ms":"2101"}
+{"ts":"2026-04-19T12:00:27Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:46411"}
+{"ts":"2026-04-19T12:00:29Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/14705","duration_ms":"486"}
+{"ts":"2026-04-19T12:00:30Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"308"}
+{"ts":"2026-04-19T12:00:31Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:31Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"12899"}
+{"ts":"2026-04-19T12:00:31Z","level":"INFO","service":"search","msg":"job completed","job_id":"69805","duration_ms":"685"}
+{"ts":"2026-04-19T12:00:32Z","level":"INFO","service":"search","msg":"cache hit","key":"user:39701"}
+{"ts":"2026-04-19T12:00:32Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"686"}
+{"ts":"2026-04-19T12:00:34Z","level":"INFO","service":"payment","msg":"job completed","job_id":"33974","duration_ms":"693"}
+{"ts":"2026-04-19T12:00:36Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:38Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"151"}
+{"ts":"2026-04-19T12:00:40Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"477"}
+{"ts":"2026-04-19T12:00:40Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/23336","duration_ms":"99"}
+{"ts":"2026-04-19T12:00:40Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"88587"}
+{"ts":"2026-04-19T12:00:42Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:55055"}
+{"ts":"2026-04-19T12:00:42Z","level":"INFO","service":"order","msg":"user logged in","user_id":"10374"}
+{"ts":"2026-04-19T12:00:42Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/16914","duration_ms":"436"}
+{"ts":"2026-04-19T12:00:42Z","level":"INFO","service":"order","msg":"user logged in","user_id":"42633"}
+{"ts":"2026-04-19T12:00:43Z","level":"INFO","service":"order","msg":"cache hit","key":"user:9667"}
+{"ts":"2026-04-19T12:00:45Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:46Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:48Z","level":"INFO","service":"search","msg":"cache hit","key":"user:47918"}
+{"ts":"2026-04-19T12:00:48Z","level":"INFO","service":"order","msg":"user logged in","user_id":"71486"}
+{"ts":"2026-04-19T12:00:50Z","level":"INFO","service":"order","msg":"job completed","job_id":"80610","duration_ms":"357"}
+{"ts":"2026-04-19T12:00:50Z","level":"WARN","service":"payment","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:00:50Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:00:52Z","level":"WARN","service":"order","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:00:53Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/70345","duration_ms":"354"}
+{"ts":"2026-04-19T12:00:54Z","level":"INFO","service":"worker","msg":"job completed","job_id":"73915","duration_ms":"217"}
+{"ts":"2026-04-19T12:00:56Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"236"}
+{"ts":"2026-04-19T12:00:56Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:83447"}
+{"ts":"2026-04-19T12:00:58Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 40026","duration_ms":"1230"}
+{"ts":"2026-04-19T12:01:00Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"91"}
+{"ts":"2026-04-19T12:01:02Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:04Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"29607"}
+{"ts":"2026-04-19T12:01:06Z","level":"INFO","service":"api","msg":"cache hit","key":"user:27654"}
+{"ts":"2026-04-19T12:01:07Z","level":"INFO","service":"search","msg":"job completed","job_id":"84908","duration_ms":"341"}
+{"ts":"2026-04-19T12:01:09Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"285"}
+{"ts":"2026-04-19T12:01:09Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/98210","duration_ms":"63"}
+{"ts":"2026-04-19T12:01:11Z","level":"ERROR","service":"search","msg":"failed to process order 8388: payment service unavailable"}
+{"ts":"2026-04-19T12:01:11Z","level":"INFO","service":"api","msg":"job completed","job_id":"14968","duration_ms":"741"}
+{"ts":"2026-04-19T12:01:12Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:914"}
+{"ts":"2026-04-19T12:01:13Z","level":"INFO","service":"worker","msg":"job completed","job_id":"75856","duration_ms":"800"}
+{"ts":"2026-04-19T12:01:13Z","level":"WARN","service":"order","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:01:15Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"636"}
+{"ts":"2026-04-19T12:01:17Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:19Z","level":"WARN","service":"order","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:01:20Z","level":"INFO","service":"api","msg":"cache hit","key":"user:10195"}
+{"ts":"2026-04-19T12:01:20Z","level":"INFO","service":"api","msg":"user logged in","user_id":"30753"}
+{"ts":"2026-04-19T12:01:21Z","level":"INFO","service":"auth","msg":"job completed","job_id":"21193","duration_ms":"501"}
+{"ts":"2026-04-19T12:01:22Z","level":"INFO","service":"worker","msg":"job completed","job_id":"53334","duration_ms":"432"}
+{"ts":"2026-04-19T12:01:23Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/92044","duration_ms":"422"}
+{"ts":"2026-04-19T12:01:25Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:25Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 60156","duration_ms":"1137"}
+{"ts":"2026-04-19T12:01:25Z","level":"INFO","service":"order","msg":"cache hit","key":"user:47793"}
+{"ts":"2026-04-19T12:01:26Z","level":"INFO","service":"order","msg":"cache hit","key":"user:61485"}
+{"ts":"2026-04-19T12:01:27Z","level":"INFO","service":"api","msg":"job completed","job_id":"10486","duration_ms":"360"}
+{"ts":"2026-04-19T12:01:27Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:27Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"767"}
+{"ts":"2026-04-19T12:01:27Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"66465"}
+{"ts":"2026-04-19T12:01:27Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:01:27Z","level":"WARN","service":"search","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 28429","duration_ms":"1694"}
+{"ts":"2026-04-19T12:01:28Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:43248"}
+{"ts":"2026-04-19T12:01:29Z","level":"INFO","service":"auth","msg":"job completed","job_id":"15763","duration_ms":"105"}
+{"ts":"2026-04-19T12:01:30Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:31Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"26897"}
+{"ts":"2026-04-19T12:01:33Z","level":"INFO","service":"api","msg":"cache hit","key":"user:91591"}
+{"ts":"2026-04-19T12:01:34Z","level":"INFO","service":"search","msg":"user logged in","user_id":"91186"}
+{"ts":"2026-04-19T12:01:36Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:37Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:01:37Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"53549"}
+{"ts":"2026-04-19T12:01:39Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:55526"}
+{"ts":"2026-04-19T12:01:40Z","level":"INFO","service":"payment","msg":"job completed","job_id":"8470","duration_ms":"496"}
+{"ts":"2026-04-19T12:01:40Z","level":"WARN","service":"order","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:01:41Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/31227","duration_ms":"14"}
+{"ts":"2026-04-19T12:01:43Z","level":"INFO","service":"order","msg":"user logged in","user_id":"38521"}
+{"ts":"2026-04-19T12:01:45Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/42092","duration_ms":"688"}
+{"ts":"2026-04-19T12:01:46Z","level":"WARN","service":"search","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:01:48Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/34483","duration_ms":"749"}
+{"ts":"2026-04-19T12:01:49Z","level":"INFO","service":"auth","msg":"job completed","job_id":"68572","duration_ms":"26"}
+{"ts":"2026-04-19T12:01:50Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"198"}
+{"ts":"2026-04-19T12:01:52Z","level":"INFO","service":"auth","msg":"job completed","job_id":"50053","duration_ms":"571"}
+{"ts":"2026-04-19T12:01:52Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:35061"}
+{"ts":"2026-04-19T12:01:53Z","level":"INFO","service":"search","msg":"user logged in","user_id":"75795"}
+{"ts":"2026-04-19T12:01:53Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/19856","duration_ms":"554"}
+{"ts":"2026-04-19T12:01:54Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/35790","duration_ms":"323"}
+{"ts":"2026-04-19T12:01:54Z","level":"INFO","service":"payment","msg":"job completed","job_id":"37743","duration_ms":"111"}
+{"ts":"2026-04-19T12:01:56Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/93464","duration_ms":"741"}
+{"ts":"2026-04-19T12:01:57Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"66368"}
+{"ts":"2026-04-19T12:01:59Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"441"}
+{"ts":"2026-04-19T12:02:00Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:01Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:01Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/50432","duration_ms":"737"}
+{"ts":"2026-04-19T12:02:03Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:03Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:04Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"250"}
+{"ts":"2026-04-19T12:02:05Z","level":"INFO","service":"api","msg":"user logged in","user_id":"56009"}
+{"ts":"2026-04-19T12:02:05Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"14646"}
+{"ts":"2026-04-19T12:02:06Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"12918"}
+{"ts":"2026-04-19T12:02:08Z","level":"INFO","service":"order","msg":"user logged in","user_id":"16526"}
+{"ts":"2026-04-19T12:02:10Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:11Z","level":"ERROR","service":"auth","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:02:12Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:12Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:14Z","level":"INFO","service":"auth","msg":"job completed","job_id":"45931","duration_ms":"397"}
+{"ts":"2026-04-19T12:02:16Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:16Z","level":"INFO","service":"api","msg":"job completed","job_id":"80605","duration_ms":"5"}
+{"ts":"2026-04-19T12:02:17Z","level":"WARN","service":"payment","msg":"retry attempted","attempt":"3","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:19Z","level":"WARN","service":"api","msg":"retry attempted","attempt":"2","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:21Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 22758","duration_ms":"1917"}
+{"ts":"2026-04-19T12:02:22Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/48163","duration_ms":"765"}
+{"ts":"2026-04-19T12:02:23Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/15537","duration_ms":"397"}
+{"ts":"2026-04-19T12:02:23Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"444"}
+{"ts":"2026-04-19T12:02:24Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"35903"}
+{"ts":"2026-04-19T12:02:25Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"642"}
+{"ts":"2026-04-19T12:02:25Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:352"}
+{"ts":"2026-04-19T12:02:26Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:28Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:28Z","level":"INFO","service":"payment","msg":"job completed","job_id":"39449","duration_ms":"433"}
+{"ts":"2026-04-19T12:02:28Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"41775"}
+{"ts":"2026-04-19T12:02:28Z","level":"INFO","service":"auth","msg":"cache hit","key":"user:10933"}
+{"ts":"2026-04-19T12:02:30Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 85484","duration_ms":"2923"}
+{"ts":"2026-04-19T12:02:30Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/64080","duration_ms":"329"}
+{"ts":"2026-04-19T12:02:31Z","level":"INFO","service":"auth","msg":"cache hit","key":"user:11751"}
+{"ts":"2026-04-19T12:02:33Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/50567","duration_ms":"522"}
+{"ts":"2026-04-19T12:02:33Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/81570","duration_ms":"664"}
+{"ts":"2026-04-19T12:02:35Z","level":"INFO","service":"payment","msg":"job completed","job_id":"58903","duration_ms":"630"}
+{"ts":"2026-04-19T12:02:36Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 8238","duration_ms":"1807"}
+{"ts":"2026-04-19T12:02:36Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:37Z","level":"INFO","service":"api","msg":"job completed","job_id":"47106","duration_ms":"759"}
+{"ts":"2026-04-19T12:02:38Z","level":"ERROR","service":"payment","msg":"database deadlock on table orders","user_id":"55673"}
+{"ts":"2026-04-19T12:02:39Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"32"}
+{"ts":"2026-04-19T12:02:41Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:41Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"66393"}
+{"ts":"2026-04-19T12:02:42Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"124"}
+{"ts":"2026-04-19T12:02:44Z","level":"INFO","service":"api","msg":"user logged in","user_id":"48057"}
+{"ts":"2026-04-19T12:02:46Z","level":"WARN","service":"auth","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:47Z","level":"INFO","service":"search","msg":"job completed","job_id":"46828","duration_ms":"209"}
+{"ts":"2026-04-19T12:02:48Z","level":"INFO","service":"order","msg":"job completed","job_id":"57944","duration_ms":"251"}
+{"ts":"2026-04-19T12:02:50Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"198"}
+{"ts":"2026-04-19T12:02:50Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:52Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:53Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"505"}
+{"ts":"2026-04-19T12:02:54Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"532"}
+{"ts":"2026-04-19T12:02:55Z","level":"INFO","service":"api","msg":"job completed","job_id":"29336","duration_ms":"460"}
+{"ts":"2026-04-19T12:02:56Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:02:56Z","level":"WARN","service":"payment","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 94931","duration_ms":"2338"}
+{"ts":"2026-04-19T12:02:58Z","level":"ERROR","service":"worker","msg":"failed to process order 4487: payment service unavailable"}
+{"ts":"2026-04-19T12:02:58Z","level":"WARN","service":"search","msg":"retry attempted","attempt":"2","upstream":"payment-service"}
+{"ts":"2026-04-19T12:02:58Z","level":"WARN","service":"order","msg":"retry attempted","attempt":"2","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:00Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"586"}
+{"ts":"2026-04-19T12:03:00Z","level":"WARN","service":"search","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:01Z","level":"WARN","service":"worker","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 1186","duration_ms":"1198"}
+{"ts":"2026-04-19T12:03:01Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/27732","duration_ms":"40"}
+{"ts":"2026-04-19T12:03:02Z","level":"ERROR","service":"order","msg":"failed to process order 2244: payment service unavailable"}
+{"ts":"2026-04-19T12:03:04Z","level":"ERROR","service":"order","msg":"failed to process order 7342: payment service unavailable"}
+{"ts":"2026-04-19T12:03:04Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"70161"}
+{"ts":"2026-04-19T12:03:06Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:06Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:06Z","level":"ERROR","service":"order","msg":"failed to process order 8656: payment service unavailable"}
+{"ts":"2026-04-19T12:03:07Z","level":"ERROR","service":"payment","msg":"failed to process order 5319: payment service unavailable"}
+{"ts":"2026-04-19T12:03:07Z","level":"ERROR","service":"api","msg":"failed to process order 9377: payment service unavailable"}
+{"ts":"2026-04-19T12:03:07Z","level":"ERROR","service":"payment","msg":"failed to process order 7982: payment service unavailable"}
+{"ts":"2026-04-19T12:03:08Z","level":"ERROR","service":"payment","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:08Z","level":"ERROR","service":"order","msg":"failed to process order 9810: payment service unavailable"}
+{"ts":"2026-04-19T12:03:08Z","level":"ERROR","service":"payment","msg":"database deadlock on table orders","user_id":"19547"}
+{"ts":"2026-04-19T12:03:10Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:12Z","level":"ERROR","service":"payment","msg":"database deadlock on table orders","user_id":"52897"}
+{"ts":"2026-04-19T12:03:13Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:15Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"8017"}
+{"ts":"2026-04-19T12:03:17Z","level":"ERROR","service":"api","msg":"failed to process order 2921: payment service unavailable"}
+{"ts":"2026-04-19T12:03:17Z","level":"ERROR","service":"payment","msg":"failed to process order 7417: payment service unavailable"}
+{"ts":"2026-04-19T12:03:18Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:20Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"72312"}
+{"ts":"2026-04-19T12:03:20Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"4978"}
+{"ts":"2026-04-19T12:03:20Z","level":"ERROR","service":"payment","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:21Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:21Z","level":"ERROR","service":"payment","msg":"failed to process order 1230: payment service unavailable"}
+{"ts":"2026-04-19T12:03:21Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:21Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:23Z","level":"ERROR","service":"payment","msg":"failed to process order 5349: payment service unavailable"}
+{"ts":"2026-04-19T12:03:24Z","level":"ERROR","service":"order","msg":"failed to process order 6716: payment service unavailable"}
+{"ts":"2026-04-19T12:03:24Z","level":"ERROR","service":"payment","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:26Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:26Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:26Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:27Z","level":"ERROR","service":"order","msg":"database deadlock on table orders","user_id":"46110"}
+{"ts":"2026-04-19T12:03:28Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:28Z","level":"ERROR","service":"api","msg":"failed to process order 3880: payment service unavailable"}
+{"ts":"2026-04-19T12:03:29Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:29Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:31Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:33Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:35Z","level":"ERROR","service":"payment","msg":"failed to process order 7815: payment service unavailable"}
+{"ts":"2026-04-19T12:03:37Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:38Z","level":"ERROR","service":"payment","msg":"failed to process order 5660: payment service unavailable"}
+{"ts":"2026-04-19T12:03:38Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:39Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"83053"}
+{"ts":"2026-04-19T12:03:40Z","level":"ERROR","service":"api","msg":"failed to process order 5035: payment service unavailable"}
+{"ts":"2026-04-19T12:03:41Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:43Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:44Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:45Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:45Z","level":"ERROR","service":"api","msg":"failed to process order 6150: payment service unavailable"}
+{"ts":"2026-04-19T12:03:46Z","level":"ERROR","service":"order","msg":"failed to process order 6961: payment service unavailable"}
+{"ts":"2026-04-19T12:03:48Z","level":"ERROR","service":"api","msg":"failed to process order 6611: payment service unavailable"}
+{"ts":"2026-04-19T12:03:49Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:49Z","level":"ERROR","service":"payment","msg":"failed to process order 1194: payment service unavailable"}
+{"ts":"2026-04-19T12:03:51Z","level":"ERROR","service":"order","msg":"failed to process order 2066: payment service unavailable"}
+{"ts":"2026-04-19T12:03:51Z","level":"ERROR","service":"order","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:52Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:53Z","level":"ERROR","service":"payment","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:03:53Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:54Z","level":"ERROR","service":"api","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:03:56Z","level":"INFO","service":"api","msg":"cache hit","key":"user:33218"}
+{"ts":"2026-04-19T12:03:56Z","level":"INFO","service":"order","msg":"user logged in","user_id":"52557"}
+{"ts":"2026-04-19T12:03:57Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:03:57Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:03:59Z","level":"INFO","service":"api","msg":"user logged in","user_id":"99147"}
+{"ts":"2026-04-19T12:04:00Z","level":"INFO","service":"payment","msg":"job completed","job_id":"59558","duration_ms":"518"}
+{"ts":"2026-04-19T12:04:02Z","level":"WARN","service":"worker","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 23960","duration_ms":"3259"}
+{"ts":"2026-04-19T12:04:04Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:05Z","level":"INFO","service":"api","msg":"job completed","job_id":"40791","duration_ms":"608"}
+{"ts":"2026-04-19T12:04:06Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"60973"}
+{"ts":"2026-04-19T12:04:06Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/54625","duration_ms":"92"}
+{"ts":"2026-04-19T12:04:08Z","level":"ERROR","service":"auth","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:04:09Z","level":"INFO","service":"api","msg":"cache hit","key":"user:38338"}
+{"ts":"2026-04-19T12:04:11Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:70077"}
+{"ts":"2026-04-19T12:04:11Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"398"}
+{"ts":"2026-04-19T12:04:11Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:13Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:13Z","level":"INFO","service":"order","msg":"user logged in","user_id":"50307"}
+{"ts":"2026-04-19T12:04:14Z","level":"WARN","service":"order","msg":"retry attempted","attempt":"1","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:14Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:16Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:17Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"29"}
+{"ts":"2026-04-19T12:04:18Z","level":"ERROR","service":"search","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:18Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:20Z","level":"INFO","service":"search","msg":"job completed","job_id":"98613","duration_ms":"231"}
+{"ts":"2026-04-19T12:04:22Z","level":"ERROR","service":"worker","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:24Z","level":"WARN","service":"order","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:25Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"626"}
+{"ts":"2026-04-19T12:04:26Z","level":"INFO","service":"search","msg":"job completed","job_id":"81802","duration_ms":"687"}
+{"ts":"2026-04-19T12:04:26Z","level":"WARN","service":"order","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:28Z","level":"INFO","service":"order","msg":"user logged in","user_id":"99382"}
+{"ts":"2026-04-19T12:04:28Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/12665","duration_ms":"62"}
+{"ts":"2026-04-19T12:04:29Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:14583"}
+{"ts":"2026-04-19T12:04:29Z","level":"INFO","service":"order","msg":"cache hit","key":"user:42665"}
+{"ts":"2026-04-19T12:04:31Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:32Z","level":"INFO","service":"order","msg":"cache hit","key":"user:638"}
+{"ts":"2026-04-19T12:04:33Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"137"}
+{"ts":"2026-04-19T12:04:33Z","level":"INFO","service":"order","msg":"job completed","job_id":"99238","duration_ms":"769"}
+{"ts":"2026-04-19T12:04:35Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/17894","duration_ms":"650"}
+{"ts":"2026-04-19T12:04:35Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"87959"}
+{"ts":"2026-04-19T12:04:35Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"716"}
+{"ts":"2026-04-19T12:04:37Z","level":"WARN","service":"worker","msg":"retry attempted","attempt":"4","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:39Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:41Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"112"}
+{"ts":"2026-04-19T12:04:42Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"2663"}
+{"ts":"2026-04-19T12:04:43Z","level":"INFO","service":"worker","msg":"job completed","job_id":"70744","duration_ms":"335"}
+{"ts":"2026-04-19T12:04:44Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:44Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"51230"}
+{"ts":"2026-04-19T12:04:46Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:47Z","level":"INFO","service":"worker","msg":"job completed","job_id":"70223","duration_ms":"71"}
+{"ts":"2026-04-19T12:04:49Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"66366"}
+{"ts":"2026-04-19T12:04:49Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/93876","duration_ms":"601"}
+{"ts":"2026-04-19T12:04:51Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"44556"}
+{"ts":"2026-04-19T12:04:51Z","level":"INFO","service":"order","msg":"user logged in","user_id":"88016"}
+{"ts":"2026-04-19T12:04:52Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"644"}
+{"ts":"2026-04-19T12:04:53Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:55Z","level":"WARN","service":"order","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:04:57Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/64513","duration_ms":"520"}
+{"ts":"2026-04-19T12:04:57Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:04:58Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:00Z","level":"INFO","service":"search","msg":"cache hit","key":"user:53690"}
+{"ts":"2026-04-19T12:05:02Z","level":"ERROR","service":"api","msg":"connection to payment-gateway:8080 refused: no route to host"}
+{"ts":"2026-04-19T12:05:04Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/9530","duration_ms":"174"}
+{"ts":"2026-04-19T12:05:05Z","level":"INFO","service":"order","msg":"cache hit","key":"user:87340"}
+{"ts":"2026-04-19T12:05:05Z","level":"INFO","service":"search","msg":"job completed","job_id":"90458","duration_ms":"47"}
+{"ts":"2026-04-19T12:05:05Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"40423"}
+{"ts":"2026-04-19T12:05:06Z","level":"INFO","service":"order","msg":"job completed","job_id":"67645","duration_ms":"414"}
+{"ts":"2026-04-19T12:05:08Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:38122"}
+{"ts":"2026-04-19T12:05:10Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"6963"}
+{"ts":"2026-04-19T12:05:11Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:13Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:13Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"11"}
+{"ts":"2026-04-19T12:05:15Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"312"}
+{"ts":"2026-04-19T12:05:17Z","level":"INFO","service":"api","msg":"user logged in","user_id":"62471"}
+{"ts":"2026-04-19T12:05:18Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"147"}
+{"ts":"2026-04-19T12:05:20Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"562"}
+{"ts":"2026-04-19T12:05:20Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:22Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:74131"}
+{"ts":"2026-04-19T12:05:22Z","level":"ERROR","service":"payment","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:05:24Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"740"}
+{"ts":"2026-04-19T12:05:26Z","level":"WARN","service":"search","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 44040","duration_ms":"2744"}
+{"ts":"2026-04-19T12:05:27Z","level":"INFO","service":"search","msg":"job completed","job_id":"4867","duration_ms":"345"}
+{"ts":"2026-04-19T12:05:27Z","level":"ERROR","service":"payment","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:05:27Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"118"}
+{"ts":"2026-04-19T12:05:29Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 5468","duration_ms":"2922"}
+{"ts":"2026-04-19T12:05:30Z","level":"WARN","service":"api","msg":"retry attempted","attempt":"1","upstream":"payment-service"}
+{"ts":"2026-04-19T12:05:32Z","level":"INFO","service":"search","msg":"job completed","job_id":"2838","duration_ms":"23"}
+{"ts":"2026-04-19T12:05:33Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"35469"}
+{"ts":"2026-04-19T12:05:33Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"51837"}
+{"ts":"2026-04-19T12:05:35Z","level":"INFO","service":"auth","msg":"job completed","job_id":"27026","duration_ms":"251"}
+{"ts":"2026-04-19T12:05:37Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:56046"}
+{"ts":"2026-04-19T12:05:39Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:62556"}
+{"ts":"2026-04-19T12:05:41Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:41Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"42890"}
+{"ts":"2026-04-19T12:05:43Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"38"}
+{"ts":"2026-04-19T12:05:44Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"15284"}
+{"ts":"2026-04-19T12:05:44Z","level":"WARN","service":"worker","msg":"retry attempted","attempt":"4","upstream":"payment-service"}
+{"ts":"2026-04-19T12:05:44Z","level":"INFO","service":"worker","msg":"job completed","job_id":"45465","duration_ms":"479"}
+{"ts":"2026-04-19T12:05:46Z","level":"INFO","service":"search","msg":"job completed","job_id":"47116","duration_ms":"5"}
+{"ts":"2026-04-19T12:05:48Z","level":"ERROR","service":"worker","msg":"database deadlock on table orders","user_id":"8233"}
+{"ts":"2026-04-19T12:05:49Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:78804"}
+{"ts":"2026-04-19T12:05:50Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"307"}
+{"ts":"2026-04-19T12:05:52Z","level":"INFO","service":"search","msg":"user logged in","user_id":"63027"}
+{"ts":"2026-04-19T12:05:52Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"62935"}
+{"ts":"2026-04-19T12:05:54Z","level":"INFO","service":"api","msg":"job completed","job_id":"61471","duration_ms":"512"}
+{"ts":"2026-04-19T12:05:55Z","level":"WARN","service":"api","msg":"retry attempted","attempt":"1","upstream":"payment-service"}
+{"ts":"2026-04-19T12:05:56Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:05:57Z","level":"INFO","service":"auth","msg":"cache hit","key":"user:82372"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"192"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/7874","duration_ms":"291"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"search","msg":"user logged in","user_id":"59655"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/83754","duration_ms":"39"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"25921"}
+{"ts":"2026-04-19T12:05:58Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/83170","duration_ms":"572"}
+{"ts":"2026-04-19T12:05:59Z","level":"INFO","service":"payment","msg":"job completed","job_id":"36478","duration_ms":"274"}
+{"ts":"2026-04-19T12:06:01Z","level":"WARN","service":"worker","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 33080","duration_ms":"2531"}
+{"ts":"2026-04-19T12:06:02Z","level":"INFO","service":"api","msg":"user logged in","user_id":"22122"}
+{"ts":"2026-04-19T12:06:02Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"640"}
+{"ts":"2026-04-19T12:06:03Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:05Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"782"}
+{"ts":"2026-04-19T12:06:05Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/14548","duration_ms":"622"}
+{"ts":"2026-04-19T12:06:06Z","level":"INFO","service":"auth","msg":"request received","method":"GET","path":"/api/users/3116","duration_ms":"12"}
+{"ts":"2026-04-19T12:06:08Z","level":"WARN","service":"auth","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:09Z","level":"INFO","service":"search","msg":"user logged in","user_id":"16114"}
+{"ts":"2026-04-19T12:06:10Z","level":"INFO","service":"order","msg":"cache hit","key":"user:86268"}
+{"ts":"2026-04-19T12:06:12Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/88790","duration_ms":"437"}
+{"ts":"2026-04-19T12:06:12Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:12Z","level":"INFO","service":"search","msg":"cache hit","key":"user:98397"}
+{"ts":"2026-04-19T12:06:14Z","level":"INFO","service":"search","msg":"cache hit","key":"user:7741"}
+{"ts":"2026-04-19T12:06:14Z","level":"ERROR","service":"payment","msg":"database deadlock on table orders","user_id":"79457"}
+{"ts":"2026-04-19T12:06:15Z","level":"WARN","service":"payment","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:17Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"547"}
+{"ts":"2026-04-19T12:06:19Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"630"}
+{"ts":"2026-04-19T12:06:20Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/16652","duration_ms":"634"}
+{"ts":"2026-04-19T12:06:20Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:20Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:13405"}
+{"ts":"2026-04-19T12:06:21Z","level":"INFO","service":"api","msg":"cache hit","key":"user:28605"}
+{"ts":"2026-04-19T12:06:22Z","level":"WARN","service":"payment","msg":"retry attempted","attempt":"3","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:22Z","level":"INFO","service":"auth","msg":"cache hit","key":"user:2525"}
+{"ts":"2026-04-19T12:06:24Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"515"}
+{"ts":"2026-04-19T12:06:25Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 76947","duration_ms":"3019"}
+{"ts":"2026-04-19T12:06:25Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:25Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/98081","duration_ms":"507"}
+{"ts":"2026-04-19T12:06:27Z","level":"INFO","service":"order","msg":"cache hit","key":"user:64311"}
+{"ts":"2026-04-19T12:06:27Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/50821","duration_ms":"171"}
+{"ts":"2026-04-19T12:06:29Z","level":"INFO","service":"search","msg":"cache hit","key":"user:19363"}
+{"ts":"2026-04-19T12:06:30Z","level":"INFO","service":"payment","msg":"job completed","job_id":"8088","duration_ms":"165"}
+{"ts":"2026-04-19T12:06:32Z","level":"ERROR","service":"auth","msg":"database deadlock on table orders","user_id":"16147"}
+{"ts":"2026-04-19T12:06:34Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"995"}
+{"ts":"2026-04-19T12:06:35Z","level":"ERROR","service":"worker","msg":"failed to process order 4826: payment service unavailable"}
+{"ts":"2026-04-19T12:06:35Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"57155"}
+{"ts":"2026-04-19T12:06:35Z","level":"WARN","service":"api","msg":"retry attempted","attempt":"1","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:36Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"30591"}
+{"ts":"2026-04-19T12:06:38Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:18872"}
+{"ts":"2026-04-19T12:06:38Z","level":"ERROR","service":"search","msg":"failed to process order 1431: payment service unavailable"}
+{"ts":"2026-04-19T12:06:38Z","level":"WARN","service":"search","msg":"retry attempted","attempt":"2","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:39Z","level":"WARN","service":"payment","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 20257","duration_ms":"2417"}
+{"ts":"2026-04-19T12:06:41Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/7443","duration_ms":"449"}
+{"ts":"2026-04-19T12:06:41Z","level":"INFO","service":"order","msg":"user logged in","user_id":"63812"}
+{"ts":"2026-04-19T12:06:43Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"87"}
+{"ts":"2026-04-19T12:06:43Z","level":"INFO","service":"api","msg":"user logged in","user_id":"37483"}
+{"ts":"2026-04-19T12:06:45Z","level":"ERROR","service":"order","msg":"database deadlock on table orders","user_id":"80921"}
+{"ts":"2026-04-19T12:06:45Z","level":"INFO","service":"auth","msg":"cache hit","key":"user:33640"}
+{"ts":"2026-04-19T12:06:47Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/14713","duration_ms":"143"}
+{"ts":"2026-04-19T12:06:47Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"196"}
+{"ts":"2026-04-19T12:06:48Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"31095"}
+{"ts":"2026-04-19T12:06:50Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:77213"}
+{"ts":"2026-04-19T12:06:50Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:53363"}
+{"ts":"2026-04-19T12:06:51Z","level":"INFO","service":"payment","msg":"job completed","job_id":"40031","duration_ms":"555"}
+{"ts":"2026-04-19T12:06:52Z","level":"WARN","service":"search","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:53Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"264"}
+{"ts":"2026-04-19T12:06:54Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:54Z","level":"INFO","service":"order","msg":"job completed","job_id":"26672","duration_ms":"193"}
+{"ts":"2026-04-19T12:06:54Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:06:54Z","level":"INFO","service":"order","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:56Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"18837"}
+{"ts":"2026-04-19T12:06:57Z","level":"INFO","service":"auth","msg":"request received","method":"GET","path":"/api/users/97320","duration_ms":"340"}
+{"ts":"2026-04-19T12:06:57Z","level":"INFO","service":"search","msg":"user logged in","user_id":"35642"}
+{"ts":"2026-04-19T12:06:57Z","level":"INFO","service":"payment","msg":"health check ok"}
+{"ts":"2026-04-19T12:06:58Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"127"}
+{"ts":"2026-04-19T12:06:59Z","level":"INFO","service":"api","msg":"user logged in","user_id":"10610"}
+{"ts":"2026-04-19T12:06:59Z","level":"INFO","service":"search","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"693"}
+{"ts":"2026-04-19T12:07:00Z","level":"INFO","service":"payment","msg":"cache hit","key":"user:76323"}
+{"ts":"2026-04-19T12:07:01Z","level":"WARN","service":"auth","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:03Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/99438","duration_ms":"246"}
+{"ts":"2026-04-19T12:07:04Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:05Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"609"}
+{"ts":"2026-04-19T12:07:06Z","level":"INFO","service":"worker","msg":"job completed","job_id":"32171","duration_ms":"149"}
+{"ts":"2026-04-19T12:07:06Z","level":"INFO","service":"api","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"210"}
+{"ts":"2026-04-19T12:07:06Z","level":"INFO","service":"order","msg":"job completed","job_id":"99364","duration_ms":"779"}
+{"ts":"2026-04-19T12:07:07Z","level":"INFO","service":"search","msg":"cache hit","key":"user:48823"}
+{"ts":"2026-04-19T12:07:08Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"282"}
+{"ts":"2026-04-19T12:07:09Z","level":"INFO","service":"order","msg":"request received","method":"GET","path":"/api/users/50542","duration_ms":"431"}
+{"ts":"2026-04-19T12:07:10Z","level":"INFO","service":"search","msg":"cache hit","key":"user:45211"}
+{"ts":"2026-04-19T12:07:12Z","level":"ERROR","service":"api","msg":"database deadlock on table orders","user_id":"37880"}
+{"ts":"2026-04-19T12:07:12Z","level":"INFO","service":"order","msg":"job completed","job_id":"15539","duration_ms":"575"}
+{"ts":"2026-04-19T12:07:12Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"260"}
+{"ts":"2026-04-19T12:07:12Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"96891"}
+{"ts":"2026-04-19T12:07:12Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/51023","duration_ms":"153"}
+{"ts":"2026-04-19T12:07:12Z","level":"INFO","service":"api","msg":"cache hit","key":"user:73401"}
+{"ts":"2026-04-19T12:07:13Z","level":"INFO","service":"order","msg":"job completed","job_id":"79829","duration_ms":"333"}
+{"ts":"2026-04-19T12:07:13Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:14Z","level":"INFO","service":"api","msg":"job completed","job_id":"74562","duration_ms":"118"}
+{"ts":"2026-04-19T12:07:14Z","level":"INFO","service":"search","msg":"user logged in","user_id":"76068"}
+{"ts":"2026-04-19T12:07:15Z","level":"INFO","service":"search","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:17Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"46887"}
+{"ts":"2026-04-19T12:07:19Z","level":"INFO","service":"auth","msg":"job completed","job_id":"49730","duration_ms":"541"}
+{"ts":"2026-04-19T12:07:21Z","level":"INFO","service":"payment","msg":"user logged in","user_id":"62314"}
+{"ts":"2026-04-19T12:07:22Z","level":"INFO","service":"search","msg":"job completed","job_id":"36508","duration_ms":"513"}
+{"ts":"2026-04-19T12:07:22Z","level":"WARN","service":"search","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:24Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/5455","duration_ms":"548"}
+{"ts":"2026-04-19T12:07:24Z","level":"INFO","service":"search","msg":"user logged in","user_id":"84445"}
+{"ts":"2026-04-19T12:07:24Z","level":"INFO","service":"payment","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"310"}
+{"ts":"2026-04-19T12:07:25Z","level":"INFO","service":"api","msg":"request received","method":"GET","path":"/api/users/50265","duration_ms":"35"}
+{"ts":"2026-04-19T12:07:27Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:28Z","level":"WARN","service":"api","msg":"retry attempted","attempt":"1","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:29Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"259"}
+{"ts":"2026-04-19T12:07:30Z","level":"ERROR","service":"worker","msg":"failed to process order 6666: payment service unavailable"}
+{"ts":"2026-04-19T12:07:31Z","level":"INFO","service":"search","msg":"request received","method":"GET","path":"/api/users/60608","duration_ms":"476"}
+{"ts":"2026-04-19T12:07:32Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/48699","duration_ms":"360"}
+{"ts":"2026-04-19T12:07:34Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"57462"}
+{"ts":"2026-04-19T12:07:36Z","level":"INFO","service":"payment","msg":"job completed","job_id":"75934","duration_ms":"306"}
+{"ts":"2026-04-19T12:07:36Z","level":"INFO","service":"api","msg":"user logged in","user_id":"50951"}
+{"ts":"2026-04-19T12:07:38Z","level":"WARN","service":"search","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:40Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"512"}
+{"ts":"2026-04-19T12:07:42Z","level":"INFO","service":"worker","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:42Z","level":"INFO","service":"auth","msg":"job completed","job_id":"45757","duration_ms":"516"}
+{"ts":"2026-04-19T12:07:42Z","level":"INFO","service":"worker","msg":"cache hit","key":"user:18548"}
+{"ts":"2026-04-19T12:07:43Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"16873"}
+{"ts":"2026-04-19T12:07:45Z","level":"INFO","service":"api","msg":"job completed","job_id":"86371","duration_ms":"548"}
+{"ts":"2026-04-19T12:07:46Z","level":"ERROR","service":"order","msg":"failed to process order 5433: payment service unavailable"}
+{"ts":"2026-04-19T12:07:48Z","level":"INFO","service":"api","msg":"job completed","job_id":"42000","duration_ms":"662"}
+{"ts":"2026-04-19T12:07:49Z","level":"INFO","service":"auth","msg":"user logged in","user_id":"87949"}
+{"ts":"2026-04-19T12:07:51Z","level":"ERROR","service":"order","msg":"request failed with status 503","method":"POST","path":"/api/orders/submit","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:52Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/1523","duration_ms":"173"}
+{"ts":"2026-04-19T12:07:53Z","level":"FATAL","service":"worker","msg":"out of memory: killing worker","pid":"9962"}
+{"ts":"2026-04-19T12:07:54Z","level":"WARN","service":"worker","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:07:54Z","level":"INFO","service":"worker","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"545"}
+{"ts":"2026-04-19T12:07:54Z","level":"INFO","service":"auth","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"791"}
+{"ts":"2026-04-19T12:07:56Z","level":"INFO","service":"worker","msg":"job completed","job_id":"90491","duration_ms":"281"}
+{"ts":"2026-04-19T12:07:57Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:07:57Z","level":"INFO","service":"api","msg":"cache hit","key":"user:59699"}
+{"ts":"2026-04-19T12:07:59Z","level":"WARN","service":"order","msg":"slow query detected","query":"SELECT * FROM orders WHERE user_id = 85655","duration_ms":"2539"}
+{"ts":"2026-04-19T12:08:01Z","level":"INFO","service":"api","msg":"cache hit","key":"user:76895"}
+{"ts":"2026-04-19T12:08:03Z","level":"INFO","service":"auth","msg":"health check ok"}
+{"ts":"2026-04-19T12:08:03Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:08:05Z","level":"INFO","service":"api","msg":"health check ok"}
+{"ts":"2026-04-19T12:08:06Z","level":"INFO","service":"order","msg":"request received","method":"POST","path":"/api/orders","duration_ms":"138"}
+{"ts":"2026-04-19T12:08:06Z","level":"INFO","service":"search","msg":"cache hit","key":"user:34219"}
+{"ts":"2026-04-19T12:08:06Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/35273","duration_ms":"539"}
+{"ts":"2026-04-19T12:08:08Z","level":"INFO","service":"api","msg":"job completed","job_id":"826","duration_ms":"68"}
+{"ts":"2026-04-19T12:08:08Z","level":"INFO","service":"search","msg":"job completed","job_id":"58857","duration_ms":"649"}
+{"ts":"2026-04-19T12:08:09Z","level":"INFO","service":"search","msg":"user logged in","user_id":"15923"}
+{"ts":"2026-04-19T12:08:10Z","level":"WARN","service":"api","msg":"circuit breaker half-open","upstream":"payment-service"}
+{"ts":"2026-04-19T12:08:11Z","level":"INFO","service":"order","msg":"user logged in","user_id":"12159"}
+{"ts":"2026-04-19T12:08:13Z","level":"INFO","service":"worker","msg":"request received","method":"GET","path":"/api/users/83602","duration_ms":"762"}
+{"ts":"2026-04-19T12:08:14Z","level":"INFO","service":"payment","msg":"request received","method":"GET","path":"/api/users/93947","duration_ms":"13"}
+{"ts":"2026-04-19T12:08:15Z","level":"WARN","service":"search","msg":"retry attempted","attempt":"5","upstream":"payment-service"}
+{"ts":"2026-04-19T12:08:15Z","level":"INFO","service":"api","msg":"job completed","job_id":"24018","duration_ms":"676"}
+{"ts":"2026-04-19T12:08:16Z","level":"INFO","service":"worker","msg":"user logged in","user_id":"54364"}

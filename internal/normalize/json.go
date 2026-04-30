@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 type fieldAlias struct {

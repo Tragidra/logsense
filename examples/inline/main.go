@@ -1,4 +1,4 @@
-// Inline demonstrates embedding LogLens in an HTTP service. Every call to ll.Report() sends the error
+// Inline demonstrates embedding logsense in an HTTP service. Every call to ll.Report() sends the error
 // through the normalize → cluster → score pipeline in the background.
 // High-priority clusters are automatically sent to the LLM for analysis (requires OPENROUTER_API_KEY env var).
 package main
@@ -15,17 +15,17 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Tragidra/loglens"
+	"github.com/Tragidra/logsense"
 )
 
 func main() {
-	ll, err := loglens.New(loglens.Config{
-		AI: loglens.AIConfig{
+	ll, err := logsense.New(logsense.Config{
+		AI: logsense.AIConfig{
 			Provider: "openrouter",
 			APIKey:   os.Getenv("OPENROUTER_API_KEY"),
 			Model:    "anthropic/claude-3.5-haiku",
 		},
-		Inline: loglens.InlineConfig{
+		Inline: logsense.InlineConfig{
 			Enabled:       true,
 			MinPriority:   40,
 			MaxConcurrent: 2,
@@ -49,7 +49,7 @@ func main() {
 
 		if rand.Intn(3) == 0 {
 			err := errors.New("connection to payment-gateway timed out")
-			ll.Report(r.Context(), err, loglens.Fields{
+			ll.Report(r.Context(), err, logsense.Fields{
 				"order_id": orderID,
 				"amount":   rand.Intn(1000),
 				"currency": "USD",

@@ -1,17 +1,17 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: loglens-postgres
+    container_name: logsense-postgres
     environment:
-      POSTGRES_USER: loglens
-      POSTGRES_PASSWORD: loglens
-      POSTGRES_DB: loglens
+      POSTGRES_USER: logsense
+      POSTGRES_PASSWORD: logsense
+      POSTGRES_DB: logsense
     ports:
       - "5432:5432"
     volumes:
-      - loglens-pg-data:/var/lib/postgresql/data
+      - logsense-pg-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U loglens"]
+      test: ["CMD-SHELL", "pg_isready -U logsense"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -19,7 +19,7 @@ services:
   # Phase 2: uncomment when kafka source is implemented
   # kafka:
   #   image: bitnami/kafka:3.7
-  #   container_name: loglens-kafka
+  #   container_name: logsense-kafka
   #   ports:
   #     - "9092:9092"
   #   environment:
@@ -32,4 +32,4 @@ services:
   #     KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
 
 volumes:
-  loglens-pg-data:
+  logsense-pg-data:

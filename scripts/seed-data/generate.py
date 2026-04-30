@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate deterministic seed log fixtures for LogLens demos.
+"""Generate deterministic seed log fixtures for logsense demos.
 
 Produces:
   - scripts/seed-data/nginx-access.log (1000 lines, combined log format)

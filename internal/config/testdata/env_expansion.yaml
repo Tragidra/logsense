@@ -1,5 +1,5 @@
 storage:
-  dsn: "${TEST_DSN:-postgres://default:default@localhost:5432/loglens?sslmode=disable}"
+  dsn: "${TEST_DSN:-postgres://default:default@localhost:5432/logsense?sslmode=disable}"
 
 sources:
   - name: app

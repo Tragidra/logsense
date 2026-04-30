@@ -1,4 +1,4 @@
-package loglens
+package logsense
 
 import (
 	"errors"
@@ -10,10 +10,10 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"github.com/Tragidra/loglens/internal/config"
+	"github.com/Tragidra/logsense/internal/config"
 )
 
-// Config is the public configuration for the loglens library, you can pass it to New();
+// Config is the public configuration for the logsense library, you can pass it to New();
 // or load it from disk with NewFromYAML(), like /internal/config
 //
 // All fields have sensible defaults — only Sources or Inline. Enabled is
@@ -82,7 +82,7 @@ type StorageConfig struct {
 	// "sqlite" (default), "postgres", or "memory".
 	Kind string `yaml:"kind"`
 
-	// SQLitePath is the file path for the SQLite database. Default "./loglens.db".
+	// SQLitePath is the file path for the SQLite database. Default "./logsense.db".
 	SQLitePath string `yaml:"sqlite_path"`
 
 	// PostgresDSN is the connection string for postgres mode.
@@ -121,7 +121,7 @@ var envRe = regexp.MustCompile(`\$\{([A-Za-z_][A-Za-z0-9_]*)(?::-([^}]*))?\}`)
 func loadYAMLConfig(path string) (Config, error) {
 	raw, err := os.ReadFile(path)
 	if err != nil {
-		return Config{}, fmt.Errorf("loglens: read %s: %w", path, err)
+		return Config{}, fmt.Errorf("logsense: read %s: %w", path, err)
 	}
 	expanded := envRe.ReplaceAllStringFunc(string(raw), func(match string) string {
 		sub := envRe.FindStringSubmatch(match)
@@ -134,7 +134,7 @@ func loadYAMLConfig(path string) (Config, error) {
 
 	var cfg Config
 	if err := yaml.Unmarshal([]byte(expanded), &cfg); err != nil {
-		return Config{}, fmt.Errorf("loglens: parse %s: %w", path, err)
+		return Config{}, fmt.Errorf("logsense: parse %s: %w", path, err)
 	}
 	return cfg, nil
 }
@@ -145,7 +145,7 @@ func (c *Config) applyDefaults() {
 		c.Storage.Kind = "sqlite"
 	}
 	if c.Storage.SQLitePath == "" {
-		c.Storage.SQLitePath = "./loglens.db"
+		c.Storage.SQLitePath = "./logsense.db"
 	}
 
 	if c.AI.Provider == "" {
@@ -210,14 +210,14 @@ func (c *Config) applyDefaults() {
 // validate returns the first hard error in the config
 func (c *Config) validate() error {
 	if len(c.Sources) == 0 && !c.Inline.Enabled {
-		return errors.New("loglens: at least one source is required, or set inline.enabled = true")
+		return errors.New("logsense: at least one source is required, or set inline.enabled = true")
 	}
 	for i, s := range c.Sources {
 		if s.Kind != "file" {
-			return fmt.Errorf("loglens: sources[%d].kind=%q: only \"file\" is supported", i, s.Kind)
+			return fmt.Errorf("logsense: sources[%d].kind=%q: only \"file\" is supported", i, s.Kind)
 		}
 		if s.Path == "" {
-			return fmt.Errorf("loglens: sources[%d].path: must not be empty", i)
+			return fmt.Errorf("logsense: sources[%d].path: must not be empty", i)
 		}
 	}
 
@@ -226,12 +226,12 @@ func (c *Config) validate() error {
 		// for testing
 	case "postgres":
 		if c.Storage.PostgresDSN == "" {
-			return errors.New("loglens: storage.postgres_dsn: required for postgres backend")
+			return errors.New("logsense: storage.postgres_dsn: required for postgres backend")
 		}
 	case "sqlite":
 		// SQLitePath has a default, no further validation needed.
 	default:
-		return fmt.Errorf("loglens: storage.kind=%q: must be one of memory|postgres|sqlite", c.Storage.Kind)
+		return fmt.Errorf("logsense: storage.kind=%q: must be one of memory|postgres|sqlite", c.Storage.Kind)
 	}
 
 	switch c.AI.Provider {
@@ -239,19 +239,19 @@ func (c *Config) validate() error {
 		// no API key required (in default mode on 04.2026)
 	case "openrouter":
 		if c.AI.APIKey == "" {
-			return errors.New("loglens: ai.api_key: required for openrouter")
+			return errors.New("logsense: ai.api_key: required for openrouter")
 		}
 		if c.AI.Model == "" {
-			return errors.New("loglens: ai.model: required for openrouter (e.g. anthropic/claude-3.5-sonnet)")
+			return errors.New("logsense: ai.model: required for openrouter (e.g. anthropic/claude-3.5-sonnet)")
 		}
 	case "fake":
 		// only for example
 	default:
-		return fmt.Errorf("loglens: ai.provider=%q: must be \"logsense-ai\" or \"openrouter\"", c.AI.Provider)
+		return fmt.Errorf("logsense: ai.provider=%q: must be \"logsense-ai\" or \"openrouter\"", c.AI.Provider)
 	}
 
 	if t := c.Cluster.SimilarityThreshold; t < 0 || t > 1 {
-		return fmt.Errorf("loglens: cluster.similarity_threshold=%g: must be in [0,1]", t)
+		return fmt.Errorf("logsense: cluster.similarity_threshold=%g: must be in [0,1]", t)
 	}
 
 	return nil

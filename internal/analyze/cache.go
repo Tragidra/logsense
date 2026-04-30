@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 type cacheKey struct {

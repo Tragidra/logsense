@@ -2,22 +2,22 @@
 
 GO       ?= go
 GOLANGCI ?= golangci-lint
-BINARY   := loglens
+BINARY   := logsense
 COMPOSE  := docker compose -f docker-compose.dev.yml
 
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 COMMIT  := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
-LDFLAGS := -ldflags "-X github.com/Tragidra/loglens/pkg/version.Version=$(VERSION) -X github.com/Tragidra/loglens/pkg/version.Commit=$(COMMIT)"
+LDFLAGS := -ldflags "-X github.com/Tragidra/logsense/pkg/version.Version=$(VERSION) -X github.com/Tragidra/logsense/pkg/version.Commit=$(COMMIT)"
 
 help:
 	@echo "Targets:"
-	@echo "  build         - compile loglens binary"
+	@echo "  build         - compile logsense binary"
 	@echo "  test          - run unit tests"
 	@echo "  test-race     - run tests with race detector"
 	@echo "  lint          - run golangci-lint"
 	@echo "  dev-up        - docker compose up (postgres, for integration tests)"
 	@echo "  dev-down      - docker compose down"
-	@echo "  migrate       - apply migrations to ./loglens.db (SQLite default or PG)"
+	@echo "  migrate       - apply migrations to ./logsense.db (SQLite default or PG)"
 	@echo "  pre-commit    - fmt + vet + test + lint"
 	@echo "  web-install   - npm install in web/"
 	@echo "  web-dev       - vite dev server on :5173"
@@ -26,7 +26,7 @@ help:
 	@echo "  clean         - remove build artifacts"
 
 build:
-	$(GO) build $(LDFLAGS) -o bin/$(BINARY) ./cmd/loglens
+	$(GO) build $(LDFLAGS) -o bin/$(BINARY) ./cmd/logsense
 
 test:
 	$(GO) test ./... -count=1

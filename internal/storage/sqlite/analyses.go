@@ -7,7 +7,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 const analysisColumns = `

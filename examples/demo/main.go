@@ -1,15 +1,15 @@
 // Demo:
-//  1. Appends 10 random log lines to ./loglens-demo.log (file in repo root) every 30 seconds.
-//  2. Tails that file with LogLens (file source (.log) and SQLite storage and logsense-ai (local openai/gpt-oss-20b).
+//  1. Appends 10 random log lines to ./logsense-demo.log (file in repo root) every 30 seconds.
+//  2. Tails that file with logsense (file source (.log) and SQLite storage and logsense-ai (local openai/gpt-oss-20b).
 //  3. Serves the embedded Vue dashboard at http://localhost:8765.
 //
 // Requires a local OpenAI-compatible LLM server on http://localhost:7090/v1 (or http://localhost:1234/v1)
 // (tested with openai/gpt-oss-20b). Set LOGSENSE_BASE_URL to override.
 //
-// This example lives inside the loglens module, the import
-// "github.com/Tragidra/loglens" resolves to the local source — no separate
+// This example lives inside the logsense module, the import
+// "github.com/Tragidra/logsense" resolves to the local source — no separate
 // download. In production code you would run
-// `loglens ui --db ./loglens-demo.db` as a separate binary instead.
+// `logsense ui --db ./logsense-demo.db` as a separate binary instead.
 // Run from the repo root:
 //
 //	go run ./examples/demo
@@ -28,18 +28,18 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Tragidra/loglens"
-	"github.com/Tragidra/loglens/internal/analyze"
-	"github.com/Tragidra/loglens/internal/api"
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm/logsenseai"
-	"github.com/Tragidra/loglens/internal/storage/sqlite"
-	"github.com/Tragidra/loglens/web"
+	"github.com/Tragidra/logsense"
+	"github.com/Tragidra/logsense/internal/analyze"
+	"github.com/Tragidra/logsense/internal/api"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm/logsenseai"
+	"github.com/Tragidra/logsense/internal/storage/sqlite"
+	"github.com/Tragidra/logsense/web"
 )
 
 const (
-	logPath  = "./loglens-demo.log"
-	dbPath   = "./loglens-demo.db"
+	logPath  = "./logsense-demo.log"
+	dbPath   = "./logsense-demo.db"
 	httpAddr = ":8765"
 	tickRate = 30 * time.Second
 	burstQty = 10
@@ -77,16 +77,16 @@ func main() {
 	defer stop()
 
 	// Logsense-ai forces temperature=0 for stable structured JSON output from local models
-	ll, err := loglens.New(loglens.Config{
-		Sources: []loglens.SourceConfig{{
+	ll, err := logsense.New(logsense.Config{
+		Sources: []logsense.SourceConfig{{
 			Kind:      "file",
 			Path:      logPath,
 			Service:   "demo",
 			Format:    "json",
 			StartFrom: "beginning",
 		}},
-		Storage: loglens.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
-		AI: loglens.AIConfig{
+		Storage: logsense.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
+		AI: logsense.AIConfig{
 			Provider: "logsense-ai",
 			BaseURL:  baseURL,
 			Timeout:  60 * time.Second,
@@ -94,12 +94,12 @@ func main() {
 		Logger: logger,
 	})
 	if err != nil {
-		logger.Error("loglens.New", "err", err)
+		logger.Error("logsense.New", "err", err)
 		os.Exit(1)
 	}
 	defer ll.Close()
 	if err := ll.Start(ctx); err != nil {
-		logger.Error("loglens.Start", "err", err)
+		logger.Error("logsense.Start", "err", err)
 		os.Exit(1)
 	}
 

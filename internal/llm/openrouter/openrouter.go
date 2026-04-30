@@ -10,14 +10,14 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm"
 )
 
 const (
 	defaultBaseURL = "https://openrouter.ai/api/v1"
-	httpReferer    = "https://github.com/Tragidra/loglens"
-	xTitle         = "LogLens"
+	httpReferer    = "https://github.com/Tragidra/logsense"
+	xTitle         = "logsense"
 )
 
 // Provider implements llm.Provider against the OpenRouter API.

@@ -1,6 +1,6 @@
 # Binaries
 bin/
-/loglens
+/logsense
 /demo
 *.exe
 *.out

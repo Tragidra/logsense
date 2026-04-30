@@ -15,8 +15,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm"
 )
 
 const defaultBaseURL = "http://localhost:1234/v1"

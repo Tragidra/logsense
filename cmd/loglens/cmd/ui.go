@@ -13,14 +13,14 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/Tragidra/loglens/internal/analyze"
-	"github.com/Tragidra/loglens/internal/api"
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm"
-	"github.com/Tragidra/loglens/internal/llm/fake"
-	"github.com/Tragidra/loglens/internal/llm/logsenseai"
-	"github.com/Tragidra/loglens/internal/llm/openrouter"
-	"github.com/Tragidra/loglens/web"
+	"github.com/Tragidra/logsense/internal/analyze"
+	"github.com/Tragidra/logsense/internal/api"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm"
+	"github.com/Tragidra/logsense/internal/llm/fake"
+	"github.com/Tragidra/logsense/internal/llm/logsenseai"
+	"github.com/Tragidra/logsense/internal/llm/openrouter"
+	"github.com/Tragidra/logsense/web"
 )
 
 var (
@@ -34,7 +34,7 @@ var (
 var uiCmd = &cobra.Command{
 	Use:   "ui",
 	Short: "Serve the read-only Dashboard",
-	Long: `Opens an existing LogLens store and serves the Dashboard UI.
+	Long: `Opens an existing logsense store and serves the Dashboard UI.
 
 Storage is selected via --db (SQLite, default) or --postgres (DSN).
 
@@ -47,7 +47,7 @@ canned responses.`,
 
 func init() {
 	uiCmd.Flags().StringVar(&uiConfig, "config", "", "optional YAML config (for AI provider settings)")
-	uiCmd.Flags().StringVar(&uiDB, "db", "./loglens.db", "SQLite database path")
+	uiCmd.Flags().StringVar(&uiDB, "db", "./logsense.db", "SQLite database path")
 	uiCmd.Flags().StringVar(&uiPostgres, "postgres", "", "Postgres DSN (alternative to --db)")
 	uiCmd.Flags().StringVar(&uiAddr, "addr", ":8765", "HTTP listen address")
 	uiCmd.Flags().BoolVar(&uiNoBrowser, "no-browser", false, "do not auto-open the browser")
@@ -90,7 +90,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 		WriteTimeout: 60 * time.Second,
 	}
 
-	logger.Info("loglens ui: ready",
+	logger.Info("logsense ui: ready",
 		"addr", uiAddr,
 		"store", describeStore(uiDB, uiPostgres),
 		"ai_provider", providerLabel(cfg.LLM.Provider))
@@ -117,7 +117,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 			time.Sleep(300 * time.Millisecond)
 			url := "http://localhost" + normalizeAddr(uiAddr)
 			if err := openBrowser(url); err != nil {
-				logger.Warn("loglens ui: could not open browser", "url", url, "err", err)
+				logger.Warn("logsense ui: could not open browser", "url", url, "err", err)
 			}
 		}()
 	}
@@ -125,7 +125,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 	if err := g.Wait(); err != nil && ctx.Err() == nil {
 		return err
 	}
-	logger.Info("loglens ui: shutdown complete")
+	logger.Info("logsense ui: shutdown complete")
 	return nil
 }
 

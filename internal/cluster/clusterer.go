@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/storage"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logsense/model"
 )
 
 // Clusterer groups log events into clusters and persists results.

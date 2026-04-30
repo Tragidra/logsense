@@ -1,4 +1,4 @@
-// Package api implements the HTTP server that the loglens UI and external consumers read from.
+// Package api implements the HTTP server that the logsense UI and external consumers read from.
 //
 // The server is read-only from the perspective of log data — it never ingests events. Routes are mounted under /api/:
 //

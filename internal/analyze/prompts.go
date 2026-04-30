@@ -6,7 +6,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 // systemPrompt is the original instruction.

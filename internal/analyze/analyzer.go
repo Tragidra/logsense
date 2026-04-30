@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm"
-	"github.com/Tragidra/loglens/internal/storage"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm"
+	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logsense/model"
 )
 
 // Analyzer turns clusters into LLM-generated Analyses-module

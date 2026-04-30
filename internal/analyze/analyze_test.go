@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/analyze"
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/llm"
-	"github.com/Tragidra/loglens/internal/llm/fake"
-	"github.com/Tragidra/loglens/internal/storage"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/analyze"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/llm"
+	"github.com/Tragidra/logsense/internal/llm/fake"
+	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logsense/model"
 )
 
 // for prompt rendering

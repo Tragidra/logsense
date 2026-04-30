@@ -7,7 +7,7 @@ api:
 
 storage:
   kind: postgres
-  dsn: "postgres://loglens:loglens@localhost:5432/loglens?sslmode=disable"
+  dsn: "postgres://logsense:logsense@localhost:5432/logsense?sslmode=disable"
   max_open_conns: 30
   max_idle_conns: 6
 

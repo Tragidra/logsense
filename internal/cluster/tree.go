@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 // LogGroup is a mined log template with aggregated statistics.

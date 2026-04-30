@@ -1,4 +1,4 @@
-package loglens_test
+package logsense_test
 
 import (
 	"context"
@@ -6,29 +6,29 @@ import (
 	"log"
 	"os"
 
-	"github.com/Tragidra/loglens"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense"
+	"github.com/Tragidra/logsense/model"
 )
 
-// ExampleNew shows the minimal file-mode setup: LogLens tails one log file and groups events into clusters
+// ExampleNew shows the minimal file-mode setup: logsense tails one log file and groups events into clusters
 // Run the dashboard to inspect results:
 //
-//	loglens ui --db ./loglens.db
+//	logsense ui --db ./logsense.db
 func ExampleNew() {
-	ll, err := loglens.New(loglens.Config{
-		Sources: []loglens.SourceConfig{
+	ll, err := logsense.New(logsense.Config{
+		Sources: []logsense.SourceConfig{
 			{
 				Kind:    "file",
 				Path:    "/var/log/myapp.log",
 				Service: "myapp",
 			},
 		},
-		AI: loglens.AIConfig{
+		AI: logsense.AIConfig{
 			Provider: "logsense-ai", // local LM Studio / Ollama on :1234
 		},
-		Storage: loglens.StorageConfig{
+		Storage: logsense.StorageConfig{
 			Kind:       "sqlite",
-			SQLitePath: "./loglens.db",
+			SQLitePath: "./logsense.db",
 		},
 	})
 	if err != nil {
@@ -47,7 +47,7 @@ func ExampleNew() {
 // ExampleNew_yamlConfig shows the same setup loaded from a YAML file, the file supports ${VAR}
 // and ${VAR:-default} env expansion.
 func ExampleNew_yamlConfig() {
-	// loglens.yaml:
+	// logsense.yaml:
 	//
 	//   sources:
 	//     - kind: file
@@ -58,9 +58,9 @@ func ExampleNew_yamlConfig() {
 	//     model: anthropic/claude-3.5-haiku
 	//   storage:
 	//     kind: sqlite
-	//     sqlite_path: ./loglens.db
+	//     sqlite_path: ./logsense.db
 
-	ll, err := loglens.NewFromYAML("loglens.yaml")
+	ll, err := logsense.NewFromYAML("logsense.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -73,21 +73,21 @@ func ExampleNew_yamlConfig() {
 	select {}
 }
 
-// ExampleLogLens_Report shows inline mode: errors from your code are reported into the pipeline
+// Examplelogsense_Report shows inline mode: errors from your code are reported into the pipeline
 // and clustered alongside file-sourced logs.
 // Report is non-blocking — if the pipeline is full, the event is dropped.
-func ExampleLogLens_Report() {
-	ll, err := loglens.New(loglens.Config{
-		AI: loglens.AIConfig{
+func Examplelogsense_Report() {
+	ll, err := logsense.New(logsense.Config{
+		AI: logsense.AIConfig{
 			Provider: "openrouter",
 			APIKey:   os.Getenv("OPENROUTER_API_KEY"),
 			Model:    "anthropic/claude-3.5-haiku",
 		},
-		Inline: loglens.InlineConfig{
+		Inline: logsense.InlineConfig{
 			Enabled:     true,
 			MinPriority: 40,
 		},
-		Storage: loglens.StorageConfig{Kind: "sqlite"},
+		Storage: logsense.StorageConfig{Kind: "sqlite"},
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -102,24 +102,24 @@ func ExampleLogLens_Report() {
 	dbErr := fmt.Errorf("connection timeout after 30s")
 
 	if dbErr != nil {
-		ll.Report(ctx, dbErr, loglens.Fields{
+		ll.Report(ctx, dbErr, logsense.Fields{
 			"query":   query,
 			"user_id": userID,
 		})
 	}
 }
 
-// ExampleLogLens_AnalyzeNow performs a synchronous one-shot LLM analysis of a single error, bypassing clustering
-// The returned [model.Analysis] type is in the github.com/Tragidra/loglens/model package.
-func ExampleLogLens_AnalyzeNow() {
-	ll, err := loglens.New(loglens.Config{
-		AI: loglens.AIConfig{
+// Examplelogsense_AnalyzeNow performs a synchronous one-shot LLM analysis of a single error, bypassing clustering
+// The returned [model.Analysis] type is in the github.com/Tragidra/logsense/model package.
+func Examplelogsense_AnalyzeNow() {
+	ll, err := logsense.New(logsense.Config{
+		AI: logsense.AIConfig{
 			Provider: "openrouter",
 			APIKey:   os.Getenv("OPENROUTER_API_KEY"),
 			Model:    "anthropic/claude-3.5-haiku",
 		},
-		Inline:  loglens.InlineConfig{Enabled: true},
-		Storage: loglens.StorageConfig{Kind: "memory"},
+		Inline:  logsense.InlineConfig{Enabled: true},
+		Storage: logsense.StorageConfig{Kind: "memory"},
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -131,7 +131,7 @@ func ExampleLogLens_AnalyzeNow() {
 	paymentErr := fmt.Errorf("stripe: card declined: insufficient_funds")
 
 	var rec *model.Analysis
-	rec, err = ll.AnalyzeNow(context.Background(), paymentErr.Error(), loglens.Fields{
+	rec, err = ll.AnalyzeNow(context.Background(), paymentErr.Error(), logsense.Fields{
 		"order_id": orderID,
 	})
 	if err != nil {
@@ -148,19 +148,19 @@ func ExampleLogLens_AnalyzeNow() {
 	}
 }
 
-// ExampleLogLens_RecentRecommendations reads the most recently stored analyses across all clusters.
+// Examplelogsense_RecentRecommendations reads the most recently stored analyses across all clusters.
 // Each element is a [model.Analysis].
-func ExampleLogLens_RecentRecommendations() {
-	ll, err := loglens.New(loglens.Config{
-		Sources: []loglens.SourceConfig{
+func Examplelogsense_RecentRecommendations() {
+	ll, err := logsense.New(logsense.Config{
+		Sources: []logsense.SourceConfig{
 			{Kind: "file", Path: "/var/log/myapp.log"},
 		},
-		AI: loglens.AIConfig{
+		AI: logsense.AIConfig{
 			Provider: "logsense-ai",
 		},
-		Storage: loglens.StorageConfig{
+		Storage: logsense.StorageConfig{
 			Kind:       "sqlite",
-			SQLitePath: "./loglens.db",
+			SQLitePath: "./logsense.db",
 		},
 	})
 	if err != nil {

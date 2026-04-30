@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/config"
+	"github.com/Tragidra/logsense/internal/config"
 )
 
 func TestMigrations(t *testing.T) {
@@ -22,7 +22,7 @@ func TestMigrations(t *testing.T) {
 		"DROP TABLE IF EXISTS analyses CASCADE",
 		"DROP TABLE IF EXISTS events CASCADE",
 		"DROP TABLE IF EXISTS clusters CASCADE",
-		"DROP TABLE IF EXISTS loglens_migrations CASCADE",
+		"DROP TABLE IF EXISTS logsense_migrations CASCADE",
 	} {
 		bootstrapExec(t, ctx, dsn, stmt)
 	}

@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/Tragidra/loglens/internal/storage"
+	"github.com/Tragidra/logsense/internal/storage"
 )
 
 func healthz(w http.ResponseWriter, _ *http.Request) {

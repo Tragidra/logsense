@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/Tragidra/loglens/internal/llm"
+	"github.com/Tragidra/logsense/internal/llm"
 )
 
 // Provider is a test double that returns canned responses.

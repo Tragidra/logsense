@@ -1,5 +1,5 @@
-// Basic demonstrates the minimal file-mode integration: LogLens tails one or more log files and
-// clusters them in the background. Run the Dashboard with `loglens ui --db ./loglens.db` to inspect results.
+// Basic demonstrates the minimal file-mode integration: logsense tails one or more log files and
+// clusters them in the background. Run the Dashboard with `logsense ui --db ./logsense.db` to inspect results.
 package main
 
 import (
@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/Tragidra/loglens"
+	"github.com/Tragidra/logsense"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 		logPath = os.Args[1]
 	}
 
-	ll, err := loglens.New(loglens.Config{
-		Sources: []loglens.SourceConfig{
+	ll, err := logsense.New(logsense.Config{
+		Sources: []logsense.SourceConfig{
 			{
 				Kind:      "file",
 				Path:      logPath,
@@ -27,7 +27,7 @@ func main() {
 			},
 		},
 		// AI provider not required
-		// Storage defaults to SQLite at ./loglens.db.
+		// Storage defaults to SQLite at ./logsense.db.
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -41,8 +41,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("LogLens tailing %s — Ctrl+C to stop", logPath)
-	log.Println("Inspect clusters with: loglens ui --db ./loglens.db")
+	log.Printf("logsense tailing %s — Ctrl+C to stop", logPath)
+	log.Println("Inspect clusters with: logsense ui --db ./logsense.db")
 
 	<-ctx.Done()
 	log.Printf("shutting down (dropped=%d)", ll.Stats().Dropped)

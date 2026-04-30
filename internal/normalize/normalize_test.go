@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/normalize"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/normalize"
+	"github.com/Tragidra/logsense/model"
 )
 
 var fixedReceivedAt = time.Date(2026, 4, 19, 12, 0, 0, 0, time.UTC)

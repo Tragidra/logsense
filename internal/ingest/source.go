@@ -4,7 +4,7 @@ package ingest
 import (
 	"context"
 
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/model"
 )
 
 // Source is a single named ingestion endpoint.

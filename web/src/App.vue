@@ -5,7 +5,7 @@ import { RouterView, RouterLink } from 'vue-router'
 <template>
   <div class="app">
     <header class="app-header">
-      <RouterLink to="/" class="brand">LogLens</RouterLink>
+      <RouterLink to="/" class="brand">logsense</RouterLink>
       <nav class="nav">
         <RouterLink to="/dashboard">Dashboard</RouterLink>
       </nav>

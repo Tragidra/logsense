@@ -1,4 +1,4 @@
-module github.com/Tragidra/loglens
+module github.com/Tragidra/logsense
 
 go 1.25.0
 

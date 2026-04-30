@@ -1,5 +1,5 @@
 storage:
-  dsn: "postgres://loglens:loglens@localhost:5432/loglens?sslmode=disable"
+  dsn: "postgres://logsense:logsense@localhost:5432/logsense?sslmode=disable"
 
 sources:
   - name: app

@@ -1,6 +1,6 @@
 // Package memory provides an in-memory storage.Repository implementation.
 //
-// It is intended for tests and the loglens smoke test. Not durable — data is
+// It is intended for tests and the logsense smoke test. Not durable — data is
 // lost when the process exits. Not optimised for large volumes.
 package memory
 
@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tragidra/loglens/internal/storage"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logsense/model"
 )
 
 // Store is a goroutine-safe in-memory storage.Repository.

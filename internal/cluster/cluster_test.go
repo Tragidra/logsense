@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/normalize"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/normalize"
+	"github.com/Tragidra/logsense/model"
 )
 
 func TestTokenize_Basic(t *testing.T) {

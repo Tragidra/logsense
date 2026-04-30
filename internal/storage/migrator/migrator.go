@@ -40,7 +40,7 @@ type Migration struct {
 // SQL statements are executed inside a transaction per migration so a failure rolls back atomically.
 func Apply(ctx context.Context, db *sql.DB, fsys fs.FS, dir string, dialect Dialect) error {
 	if _, err := db.ExecContext(ctx, `
-		CREATE TABLE IF NOT EXISTS loglens_migrations (
+		CREATE TABLE IF NOT EXISTS logsense_migrations (
 			version    TEXT PRIMARY KEY,
 			name       TEXT NOT NULL,
 			applied_at TEXT NOT NULL
@@ -70,7 +70,7 @@ func Apply(ctx context.Context, db *sql.DB, fsys fs.FS, dir string, dialect Dial
 }
 
 func loadApplied(ctx context.Context, db *sql.DB) (map[string]bool, error) {
-	rows, err := db.QueryContext(ctx, `SELECT version FROM loglens_migrations`)
+	rows, err := db.QueryContext(ctx, `SELECT version FROM logsense_migrations`)
 	if err != nil {
 		return nil, fmt.Errorf("migrator: list applied: %w", err)
 	}
@@ -132,7 +132,7 @@ func applyOne(ctx context.Context, db *sql.DB, m Migration, dialect Dialect) err
 	}
 
 	insertSQL := fmt.Sprintf(
-		`INSERT INTO loglens_migrations (version, name, applied_at) VALUES (%s, %s, %s)`,
+		`INSERT INTO logsense_migrations (version, name, applied_at) VALUES (%s, %s, %s)`,
 		placeholder(dialect, 1), placeholder(dialect, 2), placeholder(dialect, 3),
 	)
 	if _, err := tx.ExecContext(ctx, insertSQL, m.Version, m.Name, nowISO()); err != nil {

@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/config"
+	"github.com/Tragidra/logsense/internal/config"
 )
 
 func testDSN(t *testing.T) string {

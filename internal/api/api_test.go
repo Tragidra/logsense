@@ -14,12 +14,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/loglens/internal/analyze"
-	"github.com/Tragidra/loglens/internal/api"
-	"github.com/Tragidra/loglens/internal/api/dto"
-	"github.com/Tragidra/loglens/internal/config"
-	"github.com/Tragidra/loglens/internal/storage"
-	"github.com/Tragidra/loglens/model"
+	"github.com/Tragidra/logsense/internal/analyze"
+	"github.com/Tragidra/logsense/internal/api"
+	"github.com/Tragidra/logsense/internal/api/dto"
+	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logsense/model"
 
 	"log/slog"
 )

@@ -1,0 +1,65 @@
+:root {
+  --ll-bg-0: #0f1115;
+  --ll-bg-1: #151922;
+  --ll-bg-2: #1d222d;
+  --ll-border: #2a2f3c;
+  --ll-text-1: #e4e6eb;
+  --ll-text-2: #9aa1b1;
+  --ll-text-3: #5f6676;
+  --ll-accent: #5e9cff;
+  --ll-accent-strong: #7eb0ff;
+  --ll-danger: #f26565;
+  --ll-warning: #f0b949;
+  --ll-success: #47c37d;
+}
+
+html,
+body,
+#app {
+  background: var(--ll-bg-0);
+  color: var(--ll-text-1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html {
+  color-scheme: dark;
+}
+
+.el-card {
+  background: var(--ll-bg-1);
+  border-color: var(--ll-border);
+  color: var(--ll-text-1);
+}
+
+.el-button--default {
+  background: var(--ll-bg-2);
+  border-color: var(--ll-border);
+  color: var(--ll-text-1);
+}
+
+.el-input__wrapper {
+  background: var(--ll-bg-2);
+  box-shadow: 0 0 0 1px var(--ll-border) inset;
+}
+
+.el-input__inner {
+  color: var(--ll-text-1);
+}
+
+.el-tag {
+  background: var(--ll-bg-2);
+  border-color: var(--ll-border);
+  color: var(--ll-text-1);
+}
+
+a {
+  color: var(--ll-accent);
+}
+
+a:hover {
+  color: var(--ll-accent-strong);
+}

@@ -1,0 +1,42 @@
+# Binaries
+bin/
+/loglens
+/demo
+*.exe
+*.out
+
+# Test / coverage
+*.coverprofile
+coverage.out
+coverage.html
+
+# Data
+data/
+*.tree
+
+# Config with secrets
+configs/dev.yaml
+configs/local.yaml
+configs/*.local.yaml
+.env
+.env.local
+
+# Node
+web/node_modules/
+web/.vite/
+# web/dist/ is committed: it is embedded into the Go binary at build time.
+# Run `npm --prefix web run build` before committing UI changes.
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs
+*.log
+!scripts/seed-data/*.log
+
+# Docker data
+loglens-pg-data/

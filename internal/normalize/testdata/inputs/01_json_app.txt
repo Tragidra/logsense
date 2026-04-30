@@ -1,0 +1,1 @@
+{"timestamp":"2026-04-19T10:00:00Z","level":"error","msg":"Failed to connect to database","service":"payment-svc","host":"prod-01","request_id":"abc123","attempt":3}

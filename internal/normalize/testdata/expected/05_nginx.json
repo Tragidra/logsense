@@ -1,0 +1,13 @@
+{
+  "level": "info",
+  "message": "GET /api/health",
+  "timestamp": "2026-04-19T10:00:00Z",
+  "fingerprint": "248a936a0f9feb09",
+  "fields": {
+    "body_bytes": "45",
+    "remote_addr": "127.0.0.1",
+    "status": "200",
+    "user": "alice"
+  },
+  "source": "test"
+}

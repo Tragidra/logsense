@@ -1,0 +1,11 @@
+{
+  "level": "info",
+  "message": "Server started",
+  "service": "api-gw",
+  "timestamp": "2025-04-19T13:20:00Z",
+  "fingerprint": "5247fa1742e267b7",
+  "fields": {
+    "port": 8080
+  },
+  "source": "test"
+}

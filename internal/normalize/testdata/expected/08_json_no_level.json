@@ -1,0 +1,8 @@
+{
+  "level": "fatal",
+  "message": "critical database corruption detected on shard-3",
+  "service": "storage-svc",
+  "timestamp": "2026-04-19T09:00:00Z",
+  "fingerprint": "3366eff4b18d1ad5",
+  "source": "test"
+}

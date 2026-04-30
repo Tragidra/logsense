@@ -1,0 +1,71 @@
+api:
+  addr: ":9090"
+  allowed_origins:
+    - "http://localhost:5173"
+  read_timeout: "20s"
+  write_timeout: "20s"
+
+storage:
+  kind: postgres
+  dsn: "postgres://loglens:loglens@localhost:5432/loglens?sslmode=disable"
+  max_open_conns: 30
+  max_idle_conns: 6
+
+sources:
+  - name: nginx-prod
+    kind: file
+    service: nginx
+    format: nginx
+    file:
+      path: /var/log/nginx/access.log
+      follow_rotation: true
+      start_from: beginning
+  - name: app-events
+    kind: file
+    service: app
+    format: json
+    file:
+      path: /var/log/app.log
+      follow_rotation: false
+      start_from: end
+
+cluster:
+  similarity_threshold: 0.5
+  max_depth: 4
+  max_children_per_node: 200
+  max_templates_per_leaf: 100
+  prune_after: "48h"
+
+score:
+  window: "2m"
+  weights:
+    level_fatal: 50
+    level_error: 30
+    level_warn: 12
+    level_info: 0
+    frequency: 1.5
+    burst: 20.0
+    novelty: 25.0
+    rarity: 12.0
+    cross_service: 18.0
+
+analyze:
+  enabled: true
+  priority_threshold: 50
+  max_concurrent: 8
+  cache_ttl: "30m"
+  window: "15m"
+
+llm:
+  provider: openrouter
+  api_key: "test-key-abc123"
+  base_url: ""
+  model: "anthropic/claude-3.5-sonnet"
+  timeout: "45s"
+  max_retries: 3
+  max_tokens: 2000
+  temperature: 0.3
+
+log:
+  level: debug
+  format: text

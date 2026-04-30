@@ -1,0 +1,14 @@
+{
+  "level": "debug",
+  "message": "Cache miss for key user:42",
+  "service": "cache-svc",
+  "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+  "span_id": "00f067aa0ba902b7",
+  "timestamp": "2026-04-19T11:00:00Z",
+  "fingerprint": "70678df3e4cd032e",
+  "fields": {
+    "cache_key": "user:42",
+    "user_id": 42
+  },
+  "source": "test"
+}

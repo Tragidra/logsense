@@ -1,0 +1,1 @@
+<13>Apr 19 12:34:56 myhost myapp[1234]: user alice failed to authenticate

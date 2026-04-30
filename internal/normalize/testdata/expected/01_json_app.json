@@ -1,0 +1,13 @@
+{
+  "level": "error",
+  "message": "Failed to connect to database",
+  "service": "payment-svc",
+  "timestamp": "2026-04-19T10:00:00Z",
+  "fingerprint": "b7030e9b8c7bc8d5",
+  "fields": {
+    "attempt": 3,
+    "host": "prod-01",
+    "request_id": "abc123"
+  },
+  "source": "test"
+}

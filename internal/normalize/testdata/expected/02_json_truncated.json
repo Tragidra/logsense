@@ -1,0 +1,7 @@
+{
+  "level": "fatal",
+  "message": "{\"msg\": \"disk panic\", \"level\": \"fatal\", \"extra\": }",
+  "timestamp": "2026-04-19T12:00:00Z",
+  "fingerprint": "51c036f1a64d928e",
+  "source": "test"
+}

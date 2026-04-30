@@ -1,0 +1,12 @@
+{
+  "level": "error",
+  "message": "user alice failed to authenticate",
+  "timestamp": "2026-04-19T12:34:56Z",
+  "fingerprint": "f00e7d85ad0eb5dd",
+  "fields": {
+    "hostname": "myhost",
+    "pid": "1234",
+    "tag": "myapp"
+  },
+  "source": "test"
+}

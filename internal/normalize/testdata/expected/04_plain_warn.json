@@ -1,0 +1,7 @@
+{
+  "level": "warn",
+  "message": "WARNING: disk usage at 85% on /dev/sda1",
+  "timestamp": "2026-04-19T12:00:00Z",
+  "fingerprint": "57f39807a80d7953",
+  "source": "test"
+}

@@ -1,0 +1,7 @@
+{
+  "level": "info",
+  "message": "🔥 Server melting: temperature exceeded 90°C on node-42",
+  "timestamp": "2026-04-19T12:00:00Z",
+  "fingerprint": "aa8cde38e264400b",
+  "source": "test"
+}

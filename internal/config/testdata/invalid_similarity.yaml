@@ -1,0 +1,11 @@
+storage:
+  dsn: "postgres://loglens:loglens@localhost:5432/loglens?sslmode=disable"
+
+sources:
+  - name: app
+    kind: file
+    file:
+      path: /tmp/app.log
+
+cluster:
+  similarity_threshold: 1.5

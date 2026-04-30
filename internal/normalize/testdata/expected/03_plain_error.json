@@ -1,0 +1,7 @@
+{
+  "level": "error",
+  "message": "ERROR: connection refused to postgres:5432",
+  "timestamp": "2026-04-19T12:00:00Z",
+  "fingerprint": "dfd3b4f638daa51b",
+  "source": "test"
+}

@@ -1,4 +1,4 @@
-module github.com/Tragidra/logsense
+module github.com/Tragidra/logstruct
 
 go 1.25.0
 

@@ -1,7 +1,7 @@
 // Package llm defines the Provider interface and shared types used by all LLM provider implementations.
 //
 // All providers live in subpackages:
-//   - llm/logsenseai: local OpenAI-compatible server (LM Studio, Ollama, etc.)
+//   - llm/logstructai: local OpenAI-compatible server (LM Studio, Ollama, etc.)
 //   - llm/openrouter: OpenRouter hosted models
 //   - llm/fake: in-memory stub for tests
 //

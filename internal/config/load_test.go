@@ -12,7 +12,7 @@ import (
 func TestLoad_Minimal(t *testing.T) {
 	cfg, err := Load("testdata/minimal.yaml")
 	require.NoError(t, err)
-	assert.Equal(t, "postgres://logsense:logsense@localhost:5432/logsense?sslmode=disable", cfg.Storage.DSN)
+	assert.Equal(t, "postgres://logstruct:logstruct@localhost:5432/logstruct?sslmode=disable", cfg.Storage.DSN)
 }
 
 func TestLoad_Minimal_Defaults(t *testing.T) {
@@ -95,7 +95,7 @@ func TestLoad_EnvExpansion(t *testing.T) {
 
 		cfg, err := Load("testdata/env_expansion.yaml")
 		require.NoError(t, err)
-		assert.Equal(t, "postgres://default:default@localhost:5432/logsense?sslmode=disable", cfg.Storage.DSN)
+		assert.Equal(t, "postgres://default:default@localhost:5432/logstruct?sslmode=disable", cfg.Storage.DSN)
 	})
 }
 

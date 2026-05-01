@@ -18,7 +18,7 @@ var migrateCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	RunE: func(cmd *cobra.Command, _ []string) error {
 		logger := newLogger()
-		logger.Info("logsense: migrate", "store", describeStore(migrateDB, migratePostgres))
+		logger.Info("logstruct: migrate", "store", describeStore(migrateDB, migratePostgres))
 
 		store, err := openStore(context.Background(), migrateDB, migratePostgres, logger)
 		if err != nil {
@@ -26,13 +26,13 @@ var migrateCmd = &cobra.Command{
 		}
 		defer store.Close()
 
-		logger.Info("logsense: migrate complete")
+		logger.Info("logstruct: migrate complete")
 		return nil
 	},
 }
 
 func init() {
-	migrateCmd.Flags().StringVar(&migrateDB, "db", "./logsense.db", "SQLite database path")
+	migrateCmd.Flags().StringVar(&migrateDB, "db", "./logstruct.db", "SQLite database path")
 	migrateCmd.Flags().StringVar(&migratePostgres, "postgres", "", "Postgres DSN (alternative to --db)")
 	rootCmd.AddCommand(migrateCmd)
 }

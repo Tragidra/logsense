@@ -11,9 +11,9 @@ import (
 
 	"github.com/nxadm/tail"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/ingest"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/ingest"
+	"github.com/Tragidra/logstruct/model"
 )
 
 const maxLineBytes = 64 * 1024

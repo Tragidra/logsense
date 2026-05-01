@@ -12,9 +12,9 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/jackc/pgx/v5/stdlib"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/internal/storage/migrator"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/internal/storage/migrator"
 )
 
 //go:embed migrations/*.sql

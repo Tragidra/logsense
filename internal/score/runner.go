@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/model"
 )
 
 type activeCluster struct {

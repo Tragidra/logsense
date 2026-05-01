@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/model"
 )
 
 func newTestStore(t *testing.T) *Store {
@@ -30,7 +30,7 @@ func newTestStore(t *testing.T) *Store {
 func TestNew_AppliesMigrations(t *testing.T) {
 	s := newTestStore(t)
 
-	rows, err := s.db.Query(`SELECT version FROM logsense_migrations ORDER BY version`)
+	rows, err := s.db.Query(`SELECT version FROM logstruct_migrations ORDER BY version`)
 	require.NoError(t, err)
 	defer rows.Close()
 

@@ -1,5 +1,5 @@
 // Headless demonstrates reading stored recommendations programmatically, no UI needed.
-// Point it at an existing SQLite database written by another service that embeds logsense.
+// Point it at an existing SQLite database written by another service that embeds logstruct.
 package main
 
 import (
@@ -8,19 +8,19 @@ import (
 	"log"
 	"os"
 
-	"github.com/Tragidra/logsense"
+	"github.com/Tragidra/logstruct"
 )
 
 func main() {
-	dbPath := "./logsense.db"
+	dbPath := "./logstruct.db"
 	if len(os.Args) > 1 {
 		dbPath = os.Args[1]
 	}
 
 	// Open the same store the running service writes to.
-	ll, err := logsense.New(logsense.Config{
-		Inline:  logsense.InlineConfig{Enabled: true}, // satisfies the "at least one input" check
-		Storage: logsense.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
+	ll, err := logstruct.New(logstruct.Config{
+		Inline:  logstruct.InlineConfig{Enabled: true}, // satisfies the "at least one input" check
+		Storage: logstruct.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
 	})
 	if err != nil {
 		log.Fatal(err)

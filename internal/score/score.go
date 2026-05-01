@@ -5,8 +5,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // WindowStats holds aggregated metrics for one scoring window.

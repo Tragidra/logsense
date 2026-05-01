@@ -3,7 +3,7 @@ package score
 import (
 	"sync"
 
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/model"
 )
 
 const windowSlots = 5

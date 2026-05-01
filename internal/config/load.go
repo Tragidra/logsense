@@ -163,7 +163,7 @@ func validate(cfg *Config) error {
 	}
 
 	if cfg.LLM.Provider != "" {
-		needsKey := cfg.LLM.Provider != "logsense-ai" || cfg.LLM.BaseURL == ""
+		needsKey := cfg.LLM.Provider != "logstruct-ai" || cfg.LLM.BaseURL == ""
 		if needsKey && cfg.LLM.APIKey == "" {
 			return fmt.Errorf("llm.api_key: required when provider is %q", cfg.LLM.Provider)
 		}

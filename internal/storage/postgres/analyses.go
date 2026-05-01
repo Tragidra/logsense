@@ -8,7 +8,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/model"
 )
 
 const analysisColumns = `

@@ -14,9 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/ingest/file"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/ingest/file"
+	"github.com/Tragidra/logstruct/model"
 )
 
 func discardLogger() *slog.Logger {

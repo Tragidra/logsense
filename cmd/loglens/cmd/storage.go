@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/internal/storage/postgres"
-	"github.com/Tragidra/logsense/internal/storage/sqlite"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/internal/storage/postgres"
+	"github.com/Tragidra/logstruct/internal/storage/sqlite"
 )
 
 // openStore opens the storage backend selected by the flags, one of dbPath or postgresDSN must be non-empty. Migrations are applied automatically by the underlying constructors.

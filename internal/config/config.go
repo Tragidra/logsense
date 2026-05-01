@@ -1,4 +1,4 @@
-// Package config handles loading and validating logsense configuration, like config.go in root repo
+// Package config handles loading and validating logstruct configuration, like config.go in root repo
 package config
 
 import (
@@ -116,7 +116,7 @@ type LLMConfig struct {
 	Temperature float64  `yaml:"temperature"`
 }
 
-// LogConfig configures logsense's own structured logger.
+// LogConfig configures logstruct's own structured logger.
 type LogConfig struct {
 	Level  string `yaml:"level"`
 	Format string `yaml:"format"`

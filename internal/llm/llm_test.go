@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/llm"
-	"github.com/Tragidra/logsense/internal/llm/fake"
-	"github.com/Tragidra/logsense/internal/llm/openrouter"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/llm"
+	"github.com/Tragidra/logstruct/internal/llm/fake"
+	"github.com/Tragidra/logstruct/internal/llm/openrouter"
 )
 
 // for fake ai-provider
@@ -57,8 +57,8 @@ func TestOpenRouter_RequestPayload(t *testing.T) {
 
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		assert.Equal(t, "Bearer test-key", r.Header.Get("Authorization"))
-		assert.Equal(t, "https://github.com/Tragidra/logsense", r.Header.Get("HTTP-Referer"))
-		assert.Equal(t, "logsense", r.Header.Get("X-Title"))
+		assert.Equal(t, "https://github.com/Tragidra/logstruct", r.Header.Get("HTTP-Referer"))
+		assert.Equal(t, "logstruct", r.Header.Get("X-Title"))
 
 		json.NewDecoder(r.Body).Decode(&received)
 

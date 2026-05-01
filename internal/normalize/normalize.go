@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // Normalizer converts a RawLog into a canonical LogEvent.

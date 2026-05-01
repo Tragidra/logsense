@@ -14,8 +14,8 @@ import (
 
 	_ "modernc.org/sqlite"
 
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/internal/storage/migrator"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/internal/storage/migrator"
 )
 
 //go:embed migrations/*.sql

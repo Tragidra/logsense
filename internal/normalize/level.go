@@ -3,7 +3,7 @@ package normalize
 import (
 	"strings"
 
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // normalizeLevel maps a raw level string to a model.Level.

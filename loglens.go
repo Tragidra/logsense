@@ -1,31 +1,31 @@
-// Package logsense is a Go library for AI-powered log analysis.
+// Package logstruct is a Go library for AI-powered log analysis.
 //
-// logsense embeds into a Go service to ingest logs from files or via inline reporting, group them into templates
+// logstruct embeds into a Go service to ingest logs from files or via inline reporting, group them into templates
 // using the Drain algorithm, score each cluster by anomaly signals, and use a configured LLM provider to produce
 // summaries, root-cause hypotheses, and suggested actions.
 //
 // Quickstart:
 //
-//	ll, err := logsense.New(logsense.Config{
-//	    Sources: []logsense.SourceConfig{
+//	ll, err := logstruct.New(logstruct.Config{
+//	    Sources: []logstruct.SourceConfig{
 //	        {Kind: "file", Path: "/var/log/myapp.log"},
 //	    },
-//	    AI: logsense.AIConfig{Provider: "logsense-ai"},
+//	    AI: logstruct.AIConfig{Provider: "logstruct-ai"},
 //	})
 //	if err != nil { return err }
 //	defer ll.Close()
 //	if err := ll.Start(ctx); err != nil { return err }
 //
-// Storage defaults to a local SQLite file (./logsense.db). For Postgres, set:
+// Storage defaults to a local SQLite file (./logstruct.db). For Postgres, set:
 // Storage.Kind = "postgres" and provide a DSN.
 //
-// View clusters and analyses with the logsense binary:
+// View clusters and analyses with the logstruct binary:
 //
-//	go install github.com/Tragidra/logsense/cmd/logsense@latest
-//	logsense ui --db ./logsense.db
+//	go install github.com/Tragidra/logstruct/cmd/logstruct@latest
+//	logstruct ui --db ./logstruct.db
 //
-// See https://github.com/Tragidra/logsense for full documentation
-package logsense
+// See https://github.com/Tragidra/logstruct for full documentation
+package logstruct
 
 import (
 	"context"
@@ -38,31 +38,31 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/cluster"
-	internalconfig "github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/ingest"
-	"github.com/Tragidra/logsense/internal/ingest/file"
-	"github.com/Tragidra/logsense/internal/llm"
-	"github.com/Tragidra/logsense/internal/llm/fake"
-	"github.com/Tragidra/logsense/internal/llm/logsenseai"
-	"github.com/Tragidra/logsense/internal/llm/openrouter"
-	"github.com/Tragidra/logsense/internal/normalize"
-	"github.com/Tragidra/logsense/internal/score"
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/internal/storage/memory"
-	"github.com/Tragidra/logsense/internal/storage/postgres"
-	"github.com/Tragidra/logsense/internal/storage/sqlite"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/cluster"
+	internalconfig "github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/ingest"
+	"github.com/Tragidra/logstruct/internal/ingest/file"
+	"github.com/Tragidra/logstruct/internal/llm"
+	"github.com/Tragidra/logstruct/internal/llm/fake"
+	"github.com/Tragidra/logstruct/internal/llm/logstructai"
+	"github.com/Tragidra/logstruct/internal/llm/openrouter"
+	"github.com/Tragidra/logstruct/internal/normalize"
+	"github.com/Tragidra/logstruct/internal/score"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/internal/storage/memory"
+	"github.com/Tragidra/logstruct/internal/storage/postgres"
+	"github.com/Tragidra/logstruct/internal/storage/sqlite"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // rawChannelSize is the buffer size of the source -> pipeline channel. When full, Report() drops events rather
 // than blocking the caller.
 const rawChannelSize = 512
 
-// logsense is the running library instance. Construct with New() or NewFromYAML(); start with Start();
+// logstruct is the running library instance. Construct with New() or NewFromYAML(); start with Start();
 // release with Close().
-type logsense struct {
+type logstruct struct {
 	cfg    Config
 	logger *slog.Logger
 
@@ -97,8 +97,8 @@ type Stats struct {
 	Dropped int64
 }
 
-// New constructs a logsense instance from a Config. It does not start any goroutines - call Start() for that.
-func New(cfg Config) (*logsense, error) {
+// New constructs a logstruct instance from a Config. It does not start any goroutines - call Start() for that.
+func New(cfg Config) (*logstruct, error) {
 	cfg.applyDefaults()
 	if err := cfg.validate(); err != nil {
 		return nil, err
@@ -108,12 +108,12 @@ func New(cfg Config) (*logsense, error) {
 
 	repo, err := buildRepository(cfg, logger)
 	if err != nil {
-		return nil, fmt.Errorf("logsense: storage: %w", err)
+		return nil, fmt.Errorf("logstruct: storage: %w", err)
 	}
 
 	provider, err := buildProvider(cfg, logger)
 	if err != nil {
-		return nil, fmt.Errorf("logsense: ai provider: %w", err)
+		return nil, fmt.Errorf("logstruct: ai provider: %w", err)
 	}
 
 	internal := cfg.toInternal()
@@ -121,7 +121,7 @@ func New(cfg Config) (*logsense, error) {
 	clusterer, err := cluster.New(internal.Cluster, repo, logger)
 	if err != nil {
 		_ = repo.Close()
-		return nil, fmt.Errorf("logsense: cluster: %w", err)
+		return nil, fmt.Errorf("logstruct: cluster: %w", err)
 	}
 
 	normalizer := normalize.New()
@@ -138,10 +138,10 @@ func New(cfg Config) (*logsense, error) {
 		pool.Close()
 		_ = clusterer.Close()
 		_ = repo.Close()
-		return nil, fmt.Errorf("logsense: sources: %w", err)
+		return nil, fmt.Errorf("logstruct: sources: %w", err)
 	}
 
-	return &logsense{
+	return &logstruct{
 		cfg:         cfg,
 		logger:      logger,
 		repo:        repo,
@@ -156,8 +156,8 @@ func New(cfg Config) (*logsense, error) {
 	}, nil
 }
 
-// NewFromYAML loads configuration from a YAML file (with ${VAR} env expansion) and constructs a logsense instance
-func NewFromYAML(path string) (*logsense, error) {
+// NewFromYAML loads configuration from a YAML file (with ${VAR} env expansion) and constructs a logstruct instance
+func NewFromYAML(path string) (*logstruct, error) {
 	cfg, err := loadYAMLConfig(path)
 	if err != nil {
 		return nil, err
@@ -169,7 +169,7 @@ func NewFromYAML(path string) (*logsense, error) {
 // It is non-blocking: returns once goroutines are launched.
 //
 // Calling Start more than once is a no-op (the first call's error is returned).
-func (ll *logsense) Start(ctx context.Context) error {
+func (ll *logstruct) Start(ctx context.Context) error {
 	ll.startOnce.Do(func() {
 		gctx, cancel := context.WithCancel(ctx)
 		g, gctx := errgroup.WithContext(gctx)
@@ -181,7 +181,7 @@ func (ll *logsense) Start(ctx context.Context) error {
 		for _, s := range ll.sources {
 			src := s
 			g.Go(func() error {
-				ll.logger.Info("logsense: source starting", "name", src.Name())
+				ll.logger.Info("logstruct: source starting", "name", src.Name())
 				if err := src.Stream(gctx, ll.rawCh); err != nil && gctx.Err() == nil {
 					return fmt.Errorf("source %s: %w", src.Name(), err)
 				}
@@ -200,7 +200,7 @@ func (ll *logsense) Start(ctx context.Context) error {
 //
 // Close blocks for up to 5 seconds waiting for in-flight pipeline work to drain,
 // pending Report() calls beyond the buffer are dropped.
-func (ll *logsense) Close() error {
+func (ll *logstruct) Close() error {
 	var err error
 	ll.closeOnce.Do(func() {
 		ll.running.Store(false)
@@ -217,7 +217,7 @@ func (ll *logsense) Close() error {
 					err = e
 				}
 			case <-time.After(5 * time.Second):
-				ll.logger.Warn("logsense: pipeline drain timed out after 5s")
+				ll.logger.Warn("logstruct: pipeline drain timed out after 5s")
 			}
 		}
 
@@ -242,13 +242,13 @@ func (ll *logsense) Close() error {
 }
 
 // Stats returns a snapshot of internal counters
-func (ll *logsense) Stats() Stats {
+func (ll *logstruct) Stats() Stats {
 	return Stats{Dropped: ll.dropped.Load()}
 }
 
 // pipelineLoop consumes raw events, normalizes, clusters, and observes for scoring.
 // Runs until ctx cancels or the channel is closed.
-func (ll *logsense) pipelineLoop(ctx context.Context) error {
+func (ll *logstruct) pipelineLoop(ctx context.Context) error {
 	for {
 		select {
 		case <-ctx.Done():
@@ -260,14 +260,14 @@ func (ll *logsense) pipelineLoop(ctx context.Context) error {
 			event := ll.normalizer.Normalize(raw)
 			c, err := ll.clusterer.Ingest(ctx, event)
 			if err != nil {
-				ll.logger.Error("logsense: cluster ingest", "err", err)
+				ll.logger.Error("logstruct: cluster ingest", "err", err)
 				continue
 			}
 			ll.scoreRunner.Observe(c, event.Service, event.Level)
 
 			if ll.cfg.Inline.Enabled && c != nil && c.Priority >= ll.cfg.Inline.MinPriority {
 				if !ll.pool.Submit(c.ID) {
-					ll.logger.Warn("logsense: analyze queue full, dropping cluster",
+					ll.logger.Warn("logstruct: analyze queue full, dropping cluster",
 						"cluster_id", c.ID, "priority", c.Priority)
 				}
 			}
@@ -279,7 +279,7 @@ func (ll *logsense) pipelineLoop(ctx context.Context) error {
 func buildRepository(cfg Config, logger *slog.Logger) (storage.Repository, error) {
 	switch cfg.Storage.Kind {
 	case "memory":
-		logger.Info("logsense: storage = memory (data is not persisted)")
+		logger.Info("logstruct: storage = memory (data is not persisted)")
 		return memory.New(), nil
 	case "postgres":
 		return postgres.New(context.Background(), cfg.toInternal().Storage, logger)
@@ -294,8 +294,8 @@ func buildRepository(cfg Config, logger *slog.Logger) (storage.Repository, error
 func buildProvider(cfg Config, logger *slog.Logger) (llm.Provider, error) {
 	internal := cfg.toInternal().LLM
 	switch cfg.AI.Provider {
-	case "logsense-ai":
-		return logsenseai.New(&internal, logger)
+	case "logstruct-ai":
+		return logstructai.New(&internal, logger)
 	case "openrouter":
 		return openrouter.New(&internal, logger)
 	case "fake":

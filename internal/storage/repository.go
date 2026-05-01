@@ -1,4 +1,4 @@
-// Package storage defines the repository interface used by the rest of logsense, implementations live in subpackages
+// Package storage defines the repository interface used by the rest of logstruct, implementations live in subpackages
 package storage
 
 import (
@@ -6,7 +6,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // ErrNotImplemented is returned by stub Repository implementations for methods that are not needed by

@@ -1,4 +1,4 @@
-package logsense
+package logstruct
 
 import (
 	"errors"
@@ -10,10 +10,10 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"github.com/Tragidra/logsense/internal/config"
+	"github.com/Tragidra/logstruct/internal/config"
 )
 
-// Config is the public configuration for the logsense library, you can pass it to New();
+// Config is the public configuration for the logstruct library, you can pass it to New();
 // or load it from disk with NewFromYAML(), like /internal/config
 //
 // All fields have sensible defaults — only Sources or Inline. Enabled is
@@ -52,17 +52,17 @@ type SourceConfig struct {
 
 // AIConfig configures the LLM provider used for cluster analysis.
 type AIConfig struct {
-	// "logsense-ai" (default — local OpenAI-compatible endpoint, LM Studio) or "openrouter".
+	// "logstruct-ai" (default — local OpenAI-compatible endpoint, LM Studio) or "openrouter".
 	Provider string `yaml:"provider"`
 
 	// Required for "openrouter".
 	APIKey string `yaml:"api_key"`
 
 	// Required for "openrouter" (for example "anthropic/claude-3.5-sonnet").
-	// Optional for "logsense-ai", whatever model the local server has loaded.
+	// Optional for "logstruct-ai", whatever model the local server has loaded.
 	Model string `yaml:"model"`
 
-	// For "logsense-ai": defaults to http://localhost:1234/v1.
+	// For "logstruct-ai": defaults to http://localhost:1234/v1.
 	// For "openrouter": defaults to https://openrouter.ai/api/v1.
 	BaseURL string `yaml:"base_url"`
 
@@ -73,7 +73,7 @@ type AIConfig struct {
 	MaxTokens int `yaml:"max_tokens"`
 
 	// Temperature for the LLM. Default 0.2 for openrouter, forced to 0 for
-	// logsense-ai (small local models give poor structured output otherwise).
+	// logstruct-ai (small local models give poor structured output otherwise).
 	Temperature float64 `yaml:"temperature"`
 }
 
@@ -82,7 +82,7 @@ type StorageConfig struct {
 	// "sqlite" (default), "postgres", or "memory".
 	Kind string `yaml:"kind"`
 
-	// SQLitePath is the file path for the SQLite database. Default "./logsense.db".
+	// SQLitePath is the file path for the SQLite database. Default "./logstruct.db".
 	SQLitePath string `yaml:"sqlite_path"`
 
 	// PostgresDSN is the connection string for postgres mode.
@@ -121,7 +121,7 @@ var envRe = regexp.MustCompile(`\$\{([A-Za-z_][A-Za-z0-9_]*)(?::-([^}]*))?\}`)
 func loadYAMLConfig(path string) (Config, error) {
 	raw, err := os.ReadFile(path)
 	if err != nil {
-		return Config{}, fmt.Errorf("logsense: read %s: %w", path, err)
+		return Config{}, fmt.Errorf("logstruct: read %s: %w", path, err)
 	}
 	expanded := envRe.ReplaceAllStringFunc(string(raw), func(match string) string {
 		sub := envRe.FindStringSubmatch(match)
@@ -134,7 +134,7 @@ func loadYAMLConfig(path string) (Config, error) {
 
 	var cfg Config
 	if err := yaml.Unmarshal([]byte(expanded), &cfg); err != nil {
-		return Config{}, fmt.Errorf("logsense: parse %s: %w", path, err)
+		return Config{}, fmt.Errorf("logstruct: parse %s: %w", path, err)
 	}
 	return cfg, nil
 }
@@ -145,15 +145,15 @@ func (c *Config) applyDefaults() {
 		c.Storage.Kind = "sqlite"
 	}
 	if c.Storage.SQLitePath == "" {
-		c.Storage.SQLitePath = "./logsense.db"
+		c.Storage.SQLitePath = "./logstruct.db"
 	}
 
 	if c.AI.Provider == "" {
-		c.AI.Provider = "logsense-ai"
+		c.AI.Provider = "logstruct-ai"
 	}
 	if c.AI.BaseURL == "" {
 		switch c.AI.Provider {
-		case "logsense-ai":
+		case "logstruct-ai":
 			c.AI.BaseURL = "http://localhost:1234/v1"
 		case "openrouter":
 			c.AI.BaseURL = "https://openrouter.ai/api/v1"
@@ -168,8 +168,8 @@ func (c *Config) applyDefaults() {
 	if c.AI.MaxTokens <= 0 {
 		c.AI.MaxTokens = 2000
 	}
-	// logsense-ai (local models) must use temperature=0, for others default is 0.2, for stable structured JSON
-	if c.AI.Provider == "logsense-ai" {
+	// logstruct-ai (local models) must use temperature=0, for others default is 0.2, for stable structured JSON
+	if c.AI.Provider == "logstruct-ai" {
 		c.AI.Temperature = 0
 	} else if c.AI.Temperature == 0 {
 		c.AI.Temperature = 0.2
@@ -210,14 +210,14 @@ func (c *Config) applyDefaults() {
 // validate returns the first hard error in the config
 func (c *Config) validate() error {
 	if len(c.Sources) == 0 && !c.Inline.Enabled {
-		return errors.New("logsense: at least one source is required, or set inline.enabled = true")
+		return errors.New("logstruct: at least one source is required, or set inline.enabled = true")
 	}
 	for i, s := range c.Sources {
 		if s.Kind != "file" {
-			return fmt.Errorf("logsense: sources[%d].kind=%q: only \"file\" is supported", i, s.Kind)
+			return fmt.Errorf("logstruct: sources[%d].kind=%q: only \"file\" is supported", i, s.Kind)
 		}
 		if s.Path == "" {
-			return fmt.Errorf("logsense: sources[%d].path: must not be empty", i)
+			return fmt.Errorf("logstruct: sources[%d].path: must not be empty", i)
 		}
 	}
 
@@ -226,32 +226,32 @@ func (c *Config) validate() error {
 		// for testing
 	case "postgres":
 		if c.Storage.PostgresDSN == "" {
-			return errors.New("logsense: storage.postgres_dsn: required for postgres backend")
+			return errors.New("logstruct: storage.postgres_dsn: required for postgres backend")
 		}
 	case "sqlite":
 		// SQLitePath has a default, no further validation needed.
 	default:
-		return fmt.Errorf("logsense: storage.kind=%q: must be one of memory|postgres|sqlite", c.Storage.Kind)
+		return fmt.Errorf("logstruct: storage.kind=%q: must be one of memory|postgres|sqlite", c.Storage.Kind)
 	}
 
 	switch c.AI.Provider {
-	case "logsense-ai":
+	case "logstruct-ai":
 		// no API key required (in default mode on 04.2026)
 	case "openrouter":
 		if c.AI.APIKey == "" {
-			return errors.New("logsense: ai.api_key: required for openrouter")
+			return errors.New("logstruct: ai.api_key: required for openrouter")
 		}
 		if c.AI.Model == "" {
-			return errors.New("logsense: ai.model: required for openrouter (e.g. anthropic/claude-3.5-sonnet)")
+			return errors.New("logstruct: ai.model: required for openrouter (e.g. anthropic/claude-3.5-sonnet)")
 		}
 	case "fake":
 		// only for example
 	default:
-		return fmt.Errorf("logsense: ai.provider=%q: must be \"logsense-ai\" or \"openrouter\"", c.AI.Provider)
+		return fmt.Errorf("logstruct: ai.provider=%q: must be \"logstruct-ai\" or \"openrouter\"", c.AI.Provider)
 	}
 
 	if t := c.Cluster.SimilarityThreshold; t < 0 || t > 1 {
-		return fmt.Errorf("logsense: cluster.similarity_threshold=%g: must be in [0,1]", t)
+		return fmt.Errorf("logstruct: cluster.similarity_threshold=%g: must be in [0,1]", t)
 	}
 
 	return nil

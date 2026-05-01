@@ -13,14 +13,14 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/api"
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/llm"
-	"github.com/Tragidra/logsense/internal/llm/fake"
-	"github.com/Tragidra/logsense/internal/llm/logsenseai"
-	"github.com/Tragidra/logsense/internal/llm/openrouter"
-	"github.com/Tragidra/logsense/web"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/api"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/llm"
+	"github.com/Tragidra/logstruct/internal/llm/fake"
+	"github.com/Tragidra/logstruct/internal/llm/logstructai"
+	"github.com/Tragidra/logstruct/internal/llm/openrouter"
+	"github.com/Tragidra/logstruct/web"
 )
 
 var (
@@ -34,7 +34,7 @@ var (
 var uiCmd = &cobra.Command{
 	Use:   "ui",
 	Short: "Serve the read-only Dashboard",
-	Long: `Opens an existing logsense store and serves the Dashboard UI.
+	Long: `Opens an existing logstruct store and serves the Dashboard UI.
 
 Storage is selected via --db (SQLite, default) or --postgres (DSN).
 
@@ -47,7 +47,7 @@ canned responses.`,
 
 func init() {
 	uiCmd.Flags().StringVar(&uiConfig, "config", "", "optional YAML config (for AI provider settings)")
-	uiCmd.Flags().StringVar(&uiDB, "db", "./logsense.db", "SQLite database path")
+	uiCmd.Flags().StringVar(&uiDB, "db", "./logstruct.db", "SQLite database path")
 	uiCmd.Flags().StringVar(&uiPostgres, "postgres", "", "Postgres DSN (alternative to --db)")
 	uiCmd.Flags().StringVar(&uiAddr, "addr", ":8765", "HTTP listen address")
 	uiCmd.Flags().BoolVar(&uiNoBrowser, "no-browser", false, "do not auto-open the browser")
@@ -90,7 +90,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 		WriteTimeout: 60 * time.Second,
 	}
 
-	logger.Info("logsense ui: ready",
+	logger.Info("logstruct ui: ready",
 		"addr", uiAddr,
 		"store", describeStore(uiDB, uiPostgres),
 		"ai_provider", providerLabel(cfg.LLM.Provider))
@@ -117,7 +117,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 			time.Sleep(300 * time.Millisecond)
 			url := "http://localhost" + normalizeAddr(uiAddr)
 			if err := openBrowser(url); err != nil {
-				logger.Warn("logsense ui: could not open browser", "url", url, "err", err)
+				logger.Warn("logstruct ui: could not open browser", "url", url, "err", err)
 			}
 		}()
 	}
@@ -125,7 +125,7 @@ func runUI(_ *cobra.Command, _ []string) error {
 	if err := g.Wait(); err != nil && ctx.Err() == nil {
 		return err
 	}
-	logger.Info("logsense ui: shutdown complete")
+	logger.Info("logstruct ui: shutdown complete")
 	return nil
 }
 
@@ -154,8 +154,8 @@ func buildUIProvider(cfg config.LLMConfig, logger *slog.Logger) (llm.Provider, e
 	switch cfg.Provider {
 	case "openrouter":
 		return openrouter.New(&cfg, logger)
-	case "logsense-ai":
-		return logsenseai.New(&cfg, logger)
+	case "logstruct-ai":
+		return logstructai.New(&cfg, logger)
 	case "fake", "":
 		logger.Warn("this is a fake ai provider")
 		return fake.New(), nil

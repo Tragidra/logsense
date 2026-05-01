@@ -1,4 +1,4 @@
-// Package model defines the domain types used by logsense and returned by lib public API.
+// Package model defines the domain types used by logstruct and returned by lib public API.
 // The main types are:
 //   - RawLog: a raw line as received from a source before normalization.
 //   - LogEvent: a normalized log entry.

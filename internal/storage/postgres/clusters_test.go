@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // makeCluster builds a minimal valid Cluster for tests.

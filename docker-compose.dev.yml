@@ -1,17 +1,17 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: logsense-postgres
+    container_name: logstruct-postgres
     environment:
-      POSTGRES_USER: logsense
-      POSTGRES_PASSWORD: logsense
-      POSTGRES_DB: logsense
+      POSTGRES_USER: logstruct
+      POSTGRES_PASSWORD: logstruct
+      POSTGRES_DB: logstruct
     ports:
       - "5432:5432"
     volumes:
-      - logsense-pg-data:/var/lib/postgresql/data
+      - logstruct-pg-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U logsense"]
+      test: ["CMD-SHELL", "pg_isready -U logstruct"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -19,7 +19,7 @@ services:
   # Phase 2: uncomment when kafka source is implemented
   # kafka:
   #   image: bitnami/kafka:3.7
-  #   container_name: logsense-kafka
+  #   container_name: logstruct-kafka
   #   ports:
   #     - "9092:9092"
   #   environment:
@@ -32,4 +32,4 @@ services:
   #     KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
 
 volumes:
-  logsense-pg-data:
+  logstruct-pg-data:

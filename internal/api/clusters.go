@@ -11,10 +11,10 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/api/dto"
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/api/dto"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/model"
 )
 
 type clustersHandler struct {

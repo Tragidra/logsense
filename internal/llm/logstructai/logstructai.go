@@ -1,8 +1,8 @@
-// Package logsenseai implements llm.Provider for a local OpenAI-compatible local server (LM Studio, for example).
+// Package logstructai implements llm.Provider for a local OpenAI-compatible local server (LM Studio, for example).
 //
 // Default endpoint is http://localhost:1234/v1 (LM Studio's default for 04.2026). No API key is required
 // when talking to localhost. Uses json_schema response_format when a schema is provided.
-package logsenseai
+package logstructai
 
 import (
 	"bytes"
@@ -15,8 +15,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/llm"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/llm"
 )
 
 const defaultBaseURL = "http://localhost:1234/v1"
@@ -28,7 +28,7 @@ type Provider struct {
 	logger *slog.Logger
 }
 
-// New constructs a logsense-ai Provider. API key is optional.
+// New constructs a logstruct-ai Provider. API key is optional.
 func New(cfg *config.LLMConfig, logger *slog.Logger) (*Provider, error) {
 	timeout := cfg.Timeout.D()
 	if timeout <= 0 {
@@ -38,7 +38,7 @@ func New(cfg *config.LLMConfig, logger *slog.Logger) (*Provider, error) {
 	if baseURL == "" {
 		baseURL = defaultBaseURL
 	}
-	logger.Info("logsense-ai: provider initialized",
+	logger.Info("logstruct-ai: provider initialized",
 		"base_url", baseURL,
 		"model", cfg.Model,
 		"timeout", timeout,
@@ -51,7 +51,7 @@ func New(cfg *config.LLMConfig, logger *slog.Logger) (*Provider, error) {
 	}, nil
 }
 
-func (p *Provider) Name() string { return "logsense-ai" }
+func (p *Provider) Name() string { return "logstruct-ai" }
 
 func (p *Provider) Complete(ctx context.Context, req llm.Request) (llm.Response, error) {
 	maxRetries := p.cfg.MaxRetries
@@ -66,7 +66,7 @@ func (p *Provider) Complete(ctx context.Context, req llm.Request) (llm.Response,
 	}
 	// If the model rejected response_format (400), retry without it, the prompt instructs the model to return JSON.
 	if isFormatError(err) && len(req.JSONSchema) > 0 {
-		p.logger.Warn("logsense-ai: response_format rejected, retrying without it", "err", err)
+		p.logger.Warn("logstruct-ai: response_format rejected, retrying without it", "err", err)
 		noSchema := req
 		noSchema.JSONSchema = nil
 		return llm.WithRetry(ctx, maxRetries, func() (llm.Response, *llm.HTTPStatusError, error) {
@@ -149,7 +149,7 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 
 	body, err := json.Marshal(cr)
 	if err != nil {
-		return llm.Response{}, nil, fmt.Errorf("logsense-ai: marshal request: %w", err)
+		return llm.Response{}, nil, fmt.Errorf("logstruct-ai: marshal request: %w", err)
 	}
 
 	baseURL := p.cfg.BaseURL
@@ -161,7 +161,7 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 	if cr.ResponseFormat != nil {
 		respFormatType = cr.ResponseFormat.Type
 	}
-	p.logger.Debug("logsense-ai: sending request",
+	p.logger.Debug("logstruct-ai: sending request",
 		"url", baseURL+"/chat/completions",
 		"model", model,
 		"response_format_type", respFormatType,
@@ -170,7 +170,7 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 
 	httpReq, err := http.NewRequestWithContext(ctx, http.MethodPost, baseURL+"/chat/completions", bytes.NewReader(body))
 	if err != nil {
-		return llm.Response{}, nil, fmt.Errorf("logsense-ai: build request: %w", err)
+		return llm.Response{}, nil, fmt.Errorf("logstruct-ai: build request: %w", err)
 	}
 	httpReq.Header.Set("Content-Type", "application/json")
 	if p.cfg.APIKey != "" {
@@ -180,14 +180,14 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 	start := time.Now()
 	httpResp, err := p.client.Do(httpReq)
 	if err != nil {
-		return llm.Response{}, nil, fmt.Errorf("logsense-ai: http: %w", err)
+		return llm.Response{}, nil, fmt.Errorf("logstruct-ai: http: %w", err)
 	}
 	defer httpResp.Body.Close()
 	latency := int(time.Since(start).Milliseconds())
 
 	respBody, err := io.ReadAll(httpResp.Body)
 	if err != nil {
-		return llm.Response{}, nil, fmt.Errorf("logsense-ai: read body: %w", err)
+		return llm.Response{}, nil, fmt.Errorf("logstruct-ai: read body: %w", err)
 	}
 
 	if httpResp.StatusCode != http.StatusOK {
@@ -200,7 +200,7 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 
 	var out chatResponse
 	if err := json.Unmarshal(respBody, &out); err != nil {
-		return llm.Response{}, nil, fmt.Errorf("logsense-ai: decode response: %w", err)
+		return llm.Response{}, nil, fmt.Errorf("logstruct-ai: decode response: %w", err)
 	}
 	if len(out.Choices) == 0 {
 		return llm.Response{}, nil, llm.ErrInvalidResponse
@@ -216,7 +216,7 @@ func (p *Provider) do(ctx context.Context, req llm.Request) (llm.Response, *llm.
 	}
 
 	p.logger.Info("llm request",
-		"provider", "logsense-ai",
+		"provider", "logstruct-ai",
 		"model", resp.Model,
 		"input_tokens", resp.InputTokens,
 		"output_tokens", resp.OutputTokens,

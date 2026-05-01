@@ -1,4 +1,4 @@
-// Package cmd defines the logsense CLI command tree.
+// Package cmd defines the logstruct CLI command tree.
 //
 // Subcommands:
 //   - version: print build info
@@ -14,25 +14,25 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "logsense",
-	Short: "logsense CLI — read-only Dashboard, migrations, version info",
-	Long: `logsense is an embeddable Go library for AI-powered log intelligence.
+	Use:   "logstruct",
+	Short: "logstruct CLI — read-only Dashboard, migrations, version info",
+	Long: `logstruct is an embeddable Go library for AI-powered log intelligence.
 This binary is a thin CLI wrapper that ships:
 
-  logsense ui        — serve the read-only Dashboard against an existing store
-  logsense migrate   — apply schema migrations to SQLite or Postgres
-  logsense version   — print version and commit
+  logstruct ui        — serve the read-only Dashboard against an existing store
+  logstruct migrate   — apply schema migrations to SQLite or Postgres
+  logstruct version   — print version and commit
 
 To ingest logs and run analysis, embed the library in your application:
 
-  import "github.com/Tragidra/logsense"`,
+  import "github.com/Tragidra/logstruct"`,
 	SilenceUsage: true,
 }
 
 // Execute runs the root command and exits with a non-zero code on error.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		slog.New(slog.NewTextHandler(os.Stderr, nil)).Error("logsense: command failed", "err", err)
+		slog.New(slog.NewTextHandler(os.Stderr, nil)).Error("logstruct: command failed", "err", err)
 		os.Exit(1)
 	}
 }

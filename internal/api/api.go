@@ -11,9 +11,9 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/storage"
 )
 
 // Server is the HTTP API server

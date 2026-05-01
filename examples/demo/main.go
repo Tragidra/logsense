@@ -1,15 +1,15 @@
 // Demo:
-//  1. Appends 10 random log lines to ./logsense-demo.log (file in repo root) every 30 seconds.
-//  2. Tails that file with logsense (file source (.log) and SQLite storage and logsense-ai (local openai/gpt-oss-20b).
+//  1. Appends 10 random log lines to ./logstruct-demo.log (file in repo root) every 30 seconds.
+//  2. Tails that file with logstruct (file source (.log) and SQLite storage and logstruct-ai (local openai/gpt-oss-20b).
 //  3. Serves the embedded Vue dashboard at http://localhost:8765.
 //
 // Requires a local OpenAI-compatible LLM server on http://localhost:7090/v1 (or http://localhost:1234/v1)
-// (tested with openai/gpt-oss-20b). Set LOGSENSE_BASE_URL to override.
+// (tested with openai/gpt-oss-20b). Set logstruct_BASE_URL to override.
 //
-// This example lives inside the logsense module, the import
-// "github.com/Tragidra/logsense" resolves to the local source — no separate
+// This example lives inside the logstruct module, the import
+// "github.com/Tragidra/logstruct" resolves to the local source — no separate
 // download. In production code you would run
-// `logsense ui --db ./logsense-demo.db` as a separate binary instead.
+// `logstruct ui --db ./logstruct-demo.db` as a separate binary instead.
 // Run from the repo root:
 //
 //	go run ./examples/demo
@@ -28,18 +28,18 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Tragidra/logsense"
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/api"
-	"github.com/Tragidra/logsense/internal/config"
-	"github.com/Tragidra/logsense/internal/llm/logsenseai"
-	"github.com/Tragidra/logsense/internal/storage/sqlite"
-	"github.com/Tragidra/logsense/web"
+	"github.com/Tragidra/logstruct"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/api"
+	"github.com/Tragidra/logstruct/internal/config"
+	"github.com/Tragidra/logstruct/internal/llm/logstructai"
+	"github.com/Tragidra/logstruct/internal/storage/sqlite"
+	"github.com/Tragidra/logstruct/web"
 )
 
 const (
-	logPath  = "./logsense-demo.log"
-	dbPath   = "./logsense-demo.db"
+	logPath  = "./logstruct-demo.log"
+	dbPath   = "./logstruct-demo.db"
 	httpAddr = ":8765"
 	tickRate = 30 * time.Second
 	burstQty = 10
@@ -59,7 +59,7 @@ func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stderr, &slog.HandlerOptions{Level: slog.LevelInfo}))
 
 	baseURL := "http://localhost:7090/v1"
-	if v := os.Getenv("LOGSENSE_BASE_URL"); v != "" {
+	if v := os.Getenv("logstruct_BASE_URL"); v != "" {
 		baseURL = v
 	}
 
@@ -76,30 +76,30 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	// Logsense-ai forces temperature=0 for stable structured JSON output from local models
-	ll, err := logsense.New(logsense.Config{
-		Sources: []logsense.SourceConfig{{
+	// logstruct-ai forces temperature=0 for stable structured JSON output from local models
+	ll, err := logstruct.New(logstruct.Config{
+		Sources: []logstruct.SourceConfig{{
 			Kind:      "file",
 			Path:      logPath,
 			Service:   "demo",
 			Format:    "json",
 			StartFrom: "beginning",
 		}},
-		Storage: logsense.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
-		AI: logsense.AIConfig{
-			Provider: "logsense-ai",
+		Storage: logstruct.StorageConfig{Kind: "sqlite", SQLitePath: dbPath},
+		AI: logstruct.AIConfig{
+			Provider: "logstruct-ai",
 			BaseURL:  baseURL,
 			Timeout:  60 * time.Second,
 		},
 		Logger: logger,
 	})
 	if err != nil {
-		logger.Error("logsense.New", "err", err)
+		logger.Error("logstruct.New", "err", err)
 		os.Exit(1)
 	}
 	defer ll.Close()
 	if err := ll.Start(ctx); err != nil {
-		logger.Error("logsense.Start", "err", err)
+		logger.Error("logstruct.Start", "err", err)
 		os.Exit(1)
 	}
 
@@ -112,16 +112,16 @@ func main() {
 	defer apiStore.Close()
 
 	llmCfg := &config.LLMConfig{
-		Provider:    "logsense-ai",
+		Provider:    "logstruct-ai",
 		BaseURL:     baseURL,
 		Timeout:     config.Duration(60 * time.Second),
 		MaxRetries:  2,
 		MaxTokens:   2000,
 		Temperature: 0, // forced for local models
 	}
-	provider, err := logsenseai.New(llmCfg, logger)
+	provider, err := logstructai.New(llmCfg, logger)
 	if err != nil {
-		logger.Error("logsenseai provider", "err", err)
+		logger.Error("logstructai provider", "err", err)
 		os.Exit(1)
 	}
 

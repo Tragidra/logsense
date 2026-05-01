@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tragidra/logsense/internal/storage"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/storage"
+	"github.com/Tragidra/logstruct/model"
 )
 
 // SaveEvent inserts a single normalized log event

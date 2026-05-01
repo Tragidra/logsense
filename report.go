@@ -1,4 +1,4 @@
-package logsense
+package logstruct
 
 import (
 	"context"
@@ -8,18 +8,18 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Tragidra/logsense/internal/analyze"
-	"github.com/Tragidra/logsense/internal/llm"
-	"github.com/Tragidra/logsense/model"
+	"github.com/Tragidra/logstruct/internal/analyze"
+	"github.com/Tragidra/logstruct/internal/llm"
+	"github.com/Tragidra/logstruct/model"
 )
 
-// ErrNotStarted is returned by Report and AnalyzeNow if the logsense instance
+// ErrNotStarted is returned by Report and AnalyzeNow if the logstruct instance
 // has not been started or has already been closed.
-var ErrNotStarted = errors.New("logsense: not started or already closed")
+var ErrNotStarted = errors.New("logstruct: not started or already closed")
 
 // ErrAIDisabled is returned when AnalyzeNow is called but the configured AI
 // provider is unusable (e.g. missing credentials).
-var ErrAIDisabled = errors.New("logsense: AI provider not configured")
+var ErrAIDisabled = errors.New("logstruct: AI provider not configured")
 
 // Report ingests a runtime error as a synthetic log event. It is
 // non-blocking: if the internal pipeline is full, the event is dropped and an
@@ -29,7 +29,7 @@ var ErrAIDisabled = errors.New("logsense: AI provider not configured")
 // is not running, or if err is nil.
 //
 // Fields may be nil. Nested values in fields are JSON-marshalled when stored.
-func (ll *logsense) Report(ctx context.Context, err error, fields Fields) {
+func (ll *logstruct) Report(ctx context.Context, err error, fields Fields) {
 	if err == nil || !ll.cfg.Inline.Enabled || !ll.running.Load() {
 		return
 	}
@@ -60,12 +60,12 @@ func (ll *logsense) Report(ctx context.Context, err error, fields Fields) {
 // error and don't want to wait for clustering to converge.
 //
 // The returned Analysis has ClusterID = "" and is not persisted.
-func (ll *logsense) AnalyzeNow(ctx context.Context, message string, fields Fields) (*model.Analysis, error) {
+func (ll *logstruct) AnalyzeNow(ctx context.Context, message string, fields Fields) (*model.Analysis, error) {
 	if ll.provider == nil {
 		return nil, ErrAIDisabled
 	}
 	if strings.TrimSpace(message) == "" {
-		return nil, errors.New("logsense: AnalyzeNow: empty message")
+		return nil, errors.New("logstruct: AnalyzeNow: empty message")
 	}
 
 	prompt := buildDirectPrompt(message, fields)
@@ -82,12 +82,12 @@ func (ll *logsense) AnalyzeNow(ctx context.Context, message string, fields Field
 	start := time.Now()
 	resp, err := ll.provider.Complete(ctx, req)
 	if err != nil {
-		return nil, fmt.Errorf("logsense: AnalyzeNow: %w", err)
+		return nil, fmt.Errorf("logstruct: AnalyzeNow: %w", err)
 	}
 
 	parsed, err := analyze.ParseAnalysisJSON(resp.Content)
 	if err != nil {
-		return nil, fmt.Errorf("logsense: AnalyzeNow: parse response: %w", err)
+		return nil, fmt.Errorf("logstruct: AnalyzeNow: parse response: %w", err)
 	}
 
 	now := time.Now().UTC()
@@ -112,7 +112,7 @@ func (ll *logsense) AnalyzeNow(ctx context.Context, message string, fields Field
 
 // RecentRecommendations returns the most recent stored Analyses across all
 // clusters, ordered newest-first. limit <= 0 falls back to 20.
-func (ll *logsense) RecentRecommendations(ctx context.Context, limit int) ([]model.Analysis, error) {
+func (ll *logstruct) RecentRecommendations(ctx context.Context, limit int) ([]model.Analysis, error) {
 	return ll.repo.ListRecentAnalyses(ctx, limit)
 }
 

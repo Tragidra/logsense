@@ -1,5 +1,5 @@
-// Basic demonstrates the minimal file-mode integration: logsense tails one or more log files and
-// clusters them in the background. Run the Dashboard with `logsense ui --db ./logsense.db` to inspect results.
+// Basic demonstrates the minimal file-mode integration: logstruct tails one or more log files and
+// clusters them in the background. Run the Dashboard with `logstruct ui --db ./logstruct.db` to inspect results.
 package main
 
 import (
@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/Tragidra/logsense"
+	"github.com/Tragidra/logstruct"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 		logPath = os.Args[1]
 	}
 
-	ll, err := logsense.New(logsense.Config{
-		Sources: []logsense.SourceConfig{
+	ll, err := logstruct.New(logstruct.Config{
+		Sources: []logstruct.SourceConfig{
 			{
 				Kind:      "file",
 				Path:      logPath,
@@ -27,7 +27,7 @@ func main() {
 			},
 		},
 		// AI provider not required
-		// Storage defaults to SQLite at ./logsense.db.
+		// Storage defaults to SQLite at ./logstruct.db.
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -41,8 +41,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Printf("logsense tailing %s — Ctrl+C to stop", logPath)
-	log.Println("Inspect clusters with: logsense ui --db ./logsense.db")
+	log.Printf("logstruct tailing %s — Ctrl+C to stop", logPath)
+	log.Println("Inspect clusters with: logstruct ui --db ./logstruct.db")
 
 	<-ctx.Done()
 	log.Printf("shutting down (dropped=%d)", ll.Stats().Dropped)

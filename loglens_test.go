@@ -1,4 +1,4 @@
-package logsense
+package logstruct
 
 import (
 	"context"
@@ -14,9 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Tragidra/logsense/internal/llm"
-	"github.com/Tragidra/logsense/internal/llm/fake"
-	"github.com/Tragidra/logsense/internal/storage"
+	"github.com/Tragidra/logstruct/internal/llm"
+	"github.com/Tragidra/logstruct/internal/llm/fake"
+	"github.com/Tragidra/logstruct/internal/storage"
 )
 
 func newTestLogger(t *testing.T) *slog.Logger {
@@ -48,7 +48,7 @@ func TestNew_OpenrouterRequiresAPIKey(t *testing.T) {
 }
 
 // TestSmoke_InlineReportCreatesCluster is the R1 smoke test:
-// - Construct logsense with in-memory storage, inline mode, fake AI.
+// - Construct logstruct with in-memory storage, inline mode, fake AI.
 // - Start, Report a few errors, Close.
 // - Verify a cluster was created in the repo.
 func TestSmoke_InlineReportCreatesCluster(t *testing.T) {
@@ -110,7 +110,7 @@ func TestReport_NoOpWhenInlineDisabled(t *testing.T) {
 // .db file after Close().
 func TestSmoke_InlineReportSQLitePersists(t *testing.T) {
 	logger := newTestLogger(t)
-	dbPath := filepath.Join(t.TempDir(), "logsense.db")
+	dbPath := filepath.Join(t.TempDir(), "logstruct.db")
 
 	ll, err := New(Config{
 		Inline:  InlineConfig{Enabled: true, MinPriority: 100},
@@ -263,7 +263,7 @@ const validAnalysisJSON = `{
 
 // fakeProvider sets the canned response on the embedded fake.Provider and
 // returns a type-asserted handle so tests can inspect calls.
-func fakeProv(t *testing.T, ll *logsense) *fake.Provider {
+func fakeProv(t *testing.T, ll *logstruct) *fake.Provider {
 	t.Helper()
 	fp, ok := ll.provider.(*fake.Provider)
 	require.True(t, ok, "expected provider to be *fake.Provider")
